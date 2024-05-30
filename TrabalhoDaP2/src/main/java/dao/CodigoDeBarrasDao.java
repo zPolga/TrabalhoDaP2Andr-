@@ -10,10 +10,8 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class CodigoDeBarrasDao {
-    private EntityManager em;
+    private  EntityManager em = JpaUtil.getEntityManager();
     EntityTransaction etx = em.getTransaction();
-
-
     public EntityManager getEm() {
         return em;
     }

@@ -1,13 +1,16 @@
 package dao;
 
 import entidades.Validade;
+import util.JpaUtil;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class ValidadeDao {
-    private EntityManager em;
+    private  EntityManager em = JpaUtil.getEntityManager();
+    EntityTransaction etx = em.getTransaction();
 
     public EntityManager getEm() {
         return em;
@@ -21,7 +24,9 @@ public class ValidadeDao {
         this.em = em;
     }
     public void Cadastrar(Validade v) {
-        this.em.persist(v);
+        etx.begin();
+        em.persist(v);
+        etx.commit();
     }
     public void Remover(Validade v){
         this.em.remove(v);

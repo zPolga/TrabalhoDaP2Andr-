@@ -1,13 +1,16 @@
 package dao;
 
 import entidades.Saida;
+import util.JpaUtil;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class SaidaDao {
-    private EntityManager em;
+    private  EntityManager em = JpaUtil.getEntityManager();
+    EntityTransaction etx = em.getTransaction();
 
     public EntityManager getEm() {
         return em;
@@ -21,7 +24,9 @@ public class SaidaDao {
         this.em = em;
     }
     public void Cadastrar(Saida s) {
-        this.em.persist(s);
+        etx.begin();
+        em.persist(s);
+        etx.commit();
     }
     public void Remover(Saida s){
         this.em.remove(s);

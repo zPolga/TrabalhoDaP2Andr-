@@ -1,13 +1,14 @@
 package dao;
 
 import entidades.CodigoDeBarrasSaida;
+import util.JpaUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 public class CodigoDeBarrasSaidaDao {
-    private EntityManager em;
-    private EntityTransaction etx = em.getTransaction();
+    private  EntityManager em = JpaUtil.getEntityManager();
+    EntityTransaction etx = em.getTransaction();
     public EntityManager getEm() {
         return em;
     }

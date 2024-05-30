@@ -1,13 +1,16 @@
 package dao;
 
 import entidades.Login;
+import util.JpaUtil;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class LoginDao {
-    private EntityManager em;
+    private  EntityManager em = JpaUtil.getEntityManager();
+    EntityTransaction etx = em.getTransaction();
 
     public EntityManager getEm() {
         return em;
@@ -21,7 +24,9 @@ public class LoginDao {
         this.em = em;
     }
     public void Cadastrar(Login l) {
-        this.em.persist(l);
+        etx.begin();
+        em.persist(l);
+        etx.commit();
     }
 
     public void Remover(Login l){

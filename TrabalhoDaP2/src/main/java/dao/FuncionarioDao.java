@@ -1,8 +1,11 @@
 package dao;
 
+import estoque.Estoque;
 import funcionario.Funcionario;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class FuncionarioDao {
     private EntityManager em;
@@ -20,5 +23,12 @@ public class FuncionarioDao {
     }
     public void Cadastrar(Funcionario f) {
         this.em.persist(f);
+    }
+    public void Remover(Funcionario f){
+        this.em.remove(f);
+    }
+    public List<Funcionario> ListarFuncionario() {
+        TypedQuery<Funcionario> query = em.createQuery("SELECT f from Funcionario f ", Funcionario.class);
+        return query.getResultList();
     }
 }

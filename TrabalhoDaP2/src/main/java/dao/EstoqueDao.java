@@ -1,8 +1,11 @@
 package dao;
 
+import estado.Estado;
 import estoque.Estoque;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class EstoqueDao {
     private EntityManager em;
@@ -20,5 +23,13 @@ public class EstoqueDao {
     }
     public void Cadastrar(Estoque e) {
         this.em.persist(e);
+    }
+
+    public void Remover(Estoque e){
+        this.em.remove(e);
+    }
+    public List<Estoque> ListarEstoque() {
+        TypedQuery<Estoque> query = em.createQuery("SELECT e from Estoque e ", Estoque.class);
+        return query.getResultList();
     }
 }

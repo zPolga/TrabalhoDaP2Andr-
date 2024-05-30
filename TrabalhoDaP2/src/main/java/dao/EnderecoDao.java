@@ -1,8 +1,11 @@
 package dao;
 
+import codigoDeBarras.CodigoDeBarras;
 import endereco.Endereco;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class EnderecoDao {
     private EntityManager em;
@@ -20,5 +23,13 @@ public class EnderecoDao {
     }
     public void Cadastrar(Endereco e) {
         this.em.persist(e);
+    }
+
+    public void Remover(Endereco e){
+        this.em.remove(e);
+    }
+    public List<Endereco> ListarEndereco() {
+        TypedQuery<Endereco> query = em.createQuery("SELECT e from Endereço e ", Endereco.class);
+        return query.getResultList();
     }
 }

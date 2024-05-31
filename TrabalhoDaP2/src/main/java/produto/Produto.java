@@ -1,172 +1,258 @@
 package produto;
 
-import codigoDeBarras.CodigoDeBarras;
-import entrada.Entrada;
-import estoque.Estoque;
-import saida.Saida;
-import validade.Validade;
+import controler.Fornecedor;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 
-@Entity
 public class Produto {
-    @Id
-    @Column (name = "id_produto")
-    private Integer id;
-    private String marca;
-    private String categoria;
-    @Column (name = "qtde_recebida")
-    private double qtdRecebida;
-    @Column (name = "preco_prod")
-    private double precoDoProduto;
-    @Column (name = "preco_venda")
-    private double precoDeVenda;
-    private String fornecedor;
-    @Column (name = "dtvalid_embalagem")
-    private Date dataValidade;
-    @Column (name = "qtde_min")
-    private double quantidadeMinima;
-    @ManyToOne
-    private CodigoDeBarras codigoDeBarras;
-    @ManyToOne
-    private Validade validade;
-    @ManyToOne
-    private Entrada entrada;
-    @ManyToOne
-    private Saida saida;
-    @ManyToOne
-    private Estoque estoque;
 
-    public Produto(Integer id, String marca, String categoria, double qtdRecebida, double precoDoProduto, double precoDeVenda, String fornecedor, Date dataValidade, double quantidadeMinima, CodigoDeBarras codigoDeBarras, Validade validade, Entrada entrada, Saida saida, Estoque estoque) {
-        this.id = id;
-        this.marca = marca;
-        this.categoria = categoria;
-        this.qtdRecebida = qtdRecebida;
-        this.precoDoProduto = precoDoProduto;
-        this.precoDeVenda = precoDeVenda;
-        this.fornecedor = fornecedor;
-        this.dataValidade = dataValidade;
-        this.quantidadeMinima = quantidadeMinima;
-        this.codigoDeBarras = codigoDeBarras;
-        this.validade = validade;
-        this.entrada = entrada;
-        this.saida = saida;
-        this.estoque = estoque;
-    }
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProdutoPU");
 
     public Produto() {
     }
 
-    public Integer getId() {
-        return id;
+    public void cadastrarProduto() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("=== Cadastro de Produto ===");
+
+        System.out.print("Marca: ");
+        String marca = scanner.nextLine();
+
+        System.out.print("Categoria: ");
+        String categoria = scanner.nextLine();
+
+        System.out.print("Quantidade recebida: ");
+        int quantidadeRecebida = scanner.nextInt();
+        scanner.nextLine(); // Limpar o buffer do scanner
+
+        System.out.print("Preço de compra: ");
+        double precoCompra = scanner.nextDouble();
+        scanner.nextLine(); // Limpar o buffer do scanner
+
+        System.out.print("Preço de venda: ");
+        double precoVenda = scanner.nextDouble();
+        scanner.nextLine(); // Limpar o buffer do scanner
+
+        System.out.println("\n=== Cadastro de Fornecedor ===");
+
+        System.out.print("Nome do fornecedor: ");
+        String nomeFornecedor = scanner.nextLine();
+
+        System.out.print("Endereço do fornecedor: ");
+        String enderecoFornecedor = scanner.nextLine();
+
+        System.out.print("Telefone do fornecedor: ");
+        String telefoneFornecedor = scanner.nextLine();
+
+        Fornecedor fornecedor = new Fornecedor(nomeFornecedor, enderecoFornecedor, telefoneFornecedor);
+
+        System.out.print("Data de validade (dd/mm/aaaa): ");
+        Date validade = obterData("Data de validade (dd/mm/aaaa): ", scanner);
+
+        System.out.print("Quantidade mínima em estoque: ");
+        int quantidadeMinimaEstoque = scanner.nextInt();
+        scanner.nextLine(); // Limpar o buffer do scanner
+
+        System.out.print("Código de barras: ");
+        String codigoBarras = scanner.nextLine();
+
+        Produto produto = new Produto(
+        );
+
+        salvarProduto(produto);
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void atualizarProduto() {
+        // Implementação anterior
     }
 
-    public String getMarca() {
-        return marca;
+    public void listarProdutosProximosValidade(int diasAntes) {
+        // Implementação anterior
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void gerarRelatorioValidade() {
+        // Implementação anterior
     }
 
-    public String getCategoria() {
-        return categoria;
+    public void registrarEntradaProduto() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("\n=== Registro de Entrada de Produto ===");
+
+        System.out.print("Código de barras: ");
+        String codigoBarras = scanner.nextLine();
+
+        EntityManager em = emf.createEntityManager();
+        Produto produto = em.createQuery("SELECT p FROM Produto p WHERE p.codigoBarras = :codigoBarras", Produto.class)
+                .setParameter("codigoBarras", codigoBarras)
+                .getSingleResult();
+
+        if (produto == null) {
+            System.out.println("Produto não encontrado no sistema. Realizando cadastro...");
+
+            cadastrarNovoProduto(codigoBarras);
+        } else {
+            System.out.print("Quantidade recebida: ");
+            int quantidadeRecebida = scanner.nextInt();
+            scanner.nextLine(); // Limpar o buffer do scanner
+
+            produto.setQuantidadeRecebida(produto.getQuantidadeRecebida() + quantidadeRecebida);
+            salvarProduto(produto);
+
+            System.out.println("Entrada de produto registrada com sucesso!");
+        }
+
+        em.close();
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    private void setQuantidadeRecebida(int i) {
+
     }
 
-    public double getQtdRecebida() {
-        return qtdRecebida;
+    private Object getQuantidadeRecebida() {
+        Object o = null;
+        return o;
     }
 
-    public void setQtdRecebida(double qtdRecebida) {
-        this.qtdRecebida = qtdRecebida;
+    private void cadastrarNovoProduto(String codigoBarras) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("\n=== Cadastro de Novo Produto ===");
+
+        System.out.print("Marca: ");
+        String marca = scanner.nextLine();
+
+        System.out.print("Categoria: ");
+        String categoria = scanner.nextLine();
+
+        System.out.print("Quantidade recebida: ");
+        int quantidadeRecebida = scanner.nextInt();
+        scanner.nextLine(); // Limpar o buffer do scanner
+
+        System.out.print("Preço de compra: ");
+        double precoCompra = scanner.nextDouble();
+        scanner.nextLine(); // Limpar o buffer do scanner
+
+        System.out.print("Preço de venda: ");
+        double precoVenda = scanner.nextDouble();
+        scanner.nextLine(); // Limpar o buffer do scanner
+
+        System.out.println("\n=== Cadastro de Fornecedor ===");
+
+        System.out.print("Nome do fornecedor: ");
+        String nomeFornecedor = scanner.nextLine();
+
+        System.out.print("Endereço do fornecedor: ");
+        String enderecoFornecedor = scanner.nextLine();
+
+        System.out.print("Telefone do fornecedor: ");
+        String telefoneFornecedor = scanner.nextLine();
+
+        Fornecedor fornecedor = new Fornecedor(nomeFornecedor, enderecoFornecedor, telefoneFornecedor);
+
+        System.out.print("Data de validade (dd/mm/aaaa): ");
+        Date validade = obterData("Data de validade (dd/mm/aaaa): ", scanner);
+
+        System.out.print("Quantidade mínima em estoque: ");
+        int quantidadeMinimaEstoque = scanner.nextInt();
+        scanner.nextLine(); // Limpar o buffer do scanner
+
+        Produto novoProduto = new Produto(
+        );
+
+        salvarProduto(novoProduto);
+
+        System.out.println("Produto cadastrado e entrada registrada com sucesso!");
     }
 
-    public double getPrecoDoProduto() {
-        return precoDoProduto;
+    private Date obterData(String mensagem, Scanner scanner) {
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        format.setLenient(false);
+        Date data = null;
+        while (data == null) {
+            System.out.print(mensagem);
+            String input = scanner.nextLine();
+            try {
+                data = format.parse(input);
+            } catch (ParseException e) {
+                System.out.println("Formato de data inválido. Tente novamente.");
+            }
+        }
+        return data;
     }
 
-    public void setPrecoDoProduto(double precoDoProduto) {
-        this.precoDoProduto = precoDoProduto;
+    private void salvarProduto(Produto produto) {
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            em.merge(produto); // Usamos merge para atualizar um produto existente
+            tx.commit();
+            System.out.println("Produto atualizado com sucesso!");
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            System.err.println("Erro ao atualizar produto: " + e);
+        } finally {
+            em.close();
+        }
     }
 
-    public double getPrecoDeVenda() {
-        return precoDeVenda;
-    }
+    public static void main(String[] args) {
+        Produto controller = new Produto();
 
-    public void setPrecoDeVenda(double precoDeVenda) {
-        this.precoDeVenda = precoDeVenda;
-    }
+        Scanner scanner = new Scanner(System.in);
+        int opcao;
 
-    public String getFornecedor() {
-        return fornecedor;
-    }
+        do {
+            System.out.println("\n=== Menu ===");
+            System.out.println("1. Cadastrar Produto");
+            System.out.println("2. Atualizar Produto");
+            System.out.println("3. Listar Produtos Próximos da Validade");
+            System.out.println("4. Gerar Relatório de Validade");
+            System.out.println("5. Registrar Entrada de Produto");
+            System.out.println("6. Sair");
+            System.out.print("Escolha uma opção: ");
+            opcao = scanner.nextInt();
+            scanner.nextLine(); // Limpar o buffer do scanner
 
-    public void setFornecedor(String fornecedor) {
-        this.fornecedor = fornecedor;
-    }
+            switch (opcao) {
+                case 1:
+                    controller.cadastrarProduto();
+                    break;
+                case 2:
+                    controller.atualizarProduto();
+                    break;
+                case 3:
+                    System.out.print("Quantos dias antes para notificação? ");
+                    int diasAntes = scanner.nextInt();
+                    scanner.nextLine(); // Limpar o buffer do scanner
+                    controller.listarProdutosProximosValidade(diasAntes);
+                    break;
+                case 4:
+                    controller.gerarRelatorioValidade();
+                    break;
+                case 5:
+                    controller.registrarEntradaProduto();
+                    break;
+                case 6:
+                    System.out.println("Saindo...");
+                    break;
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+            }
 
-    public Date getDataValidade() {
-        return dataValidade;
-    }
+        } while (opcao != 6);
 
-    public void setDataValidade(Date dataValidade) {
-        this.dataValidade = dataValidade;
-    }
-
-    public double getQuantidadeMinima() {
-        return quantidadeMinima;
-    }
-
-    public void setQuantidadeMinima(double quantidadeMinima) {
-        this.quantidadeMinima = quantidadeMinima;
-    }
-
-    public CodigoDeBarras getCodigoDeBarras() {
-        return codigoDeBarras;
-    }
-
-    public void setCodigoDeBarras(CodigoDeBarras codigoDeBarras) {
-        this.codigoDeBarras = codigoDeBarras;
-    }
-
-    public Validade getValidade() {
-        return validade;
-    }
-
-    public void setValidade(Validade validade) {
-        this.validade = validade;
-    }
-
-    public Entrada getEntrada() {
-        return entrada;
-    }
-
-    public void setEntrada(Entrada entrada) {
-        this.entrada = entrada;
-    }
-
-    public Saida getSaida() {
-        return saida;
-    }
-
-    public void setSaida(Saida saida) {
-        this.saida = saida;
-    }
-
-    public Estoque getEstoque() {
-        return estoque;
-    }
-
-    public void setEstoque(Estoque estoque) {
-        this.estoque = estoque;
+        scanner.close();
     }
 }

@@ -30,7 +30,7 @@ public class Funcionario {
         this.login = login;
     }
 
-    public Funcionario() {
+    public Funcionario(String nomeCompleto, String cpf, Date dataNascimento, String endereco, String sexo, String telefone, String email, Date dataAdmissao, double salario, String cargo, String funcao) {
     }
 
     @Column (name = "cpf")

@@ -11,6 +11,10 @@ public class EstoqueDao {
         return em;
     }
 
+    public EstoqueDao(EntityManager em) {
+        this.em = em;
+    }
+
     public void setEm(EntityManager em) {
         this.em = em;
     }

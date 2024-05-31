@@ -11,6 +11,10 @@ public class ProdutoDao {
         return em;
     }
 
+    public ProdutoDao(EntityManager em) {
+        this.em = em;
+    }
+
     public void setEm(EntityManager em) {
         this.em = em;
     }

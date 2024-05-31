@@ -11,6 +11,10 @@ public class CodigoDeBarrasSaidaDao {
         return em;
     }
 
+    public CodigoDeBarrasSaidaDao(EntityManager em) {
+        this.em = em;
+    }
+
     public void setEm(EntityManager em) {
         this.em = em;
     }

@@ -5,7 +5,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class JpaUtil {
-    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("local");
+    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("mercado");
 
-    public static EntityManager em = emf.createEntityManager();
+    public static EntityManager getEntityManager(){
+        return emf.createEntityManager();
+    }
+
 }

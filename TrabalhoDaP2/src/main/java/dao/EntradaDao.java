@@ -11,6 +11,10 @@ public class EntradaDao {
         return em;
     }
 
+    public EntradaDao(EntityManager em) {
+        this.em = em;
+    }
+
     public void setEm(EntityManager em) {
         this.em = em;
     }

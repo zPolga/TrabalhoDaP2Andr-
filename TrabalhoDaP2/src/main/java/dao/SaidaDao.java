@@ -11,6 +11,10 @@ public class SaidaDao {
         return em;
     }
 
+    public SaidaDao(EntityManager em) {
+        this.em = em;
+    }
+
     public void setEm(EntityManager em) {
         this.em = em;
     }

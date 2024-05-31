@@ -8,10 +8,43 @@ import javax.persistence.*;
 @Entity
 public class CodigoDeBarras {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column (name = "id_codbarras")
     private Integer id;
     @ManyToOne
     private Estoque estoque;
     @ManyToOne
     private Tipo tipo;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public CodigoDeBarras() {
+    }
+
+    public CodigoDeBarras(Integer id, Estoque estoque, Tipo tipo) {
+        this.id = id;
+        this.estoque = estoque;
+        this.tipo = tipo;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Estoque getEstoque() {
+        return estoque;
+    }
+
+    public void setEstoque(Estoque estoque) {
+        this.estoque = estoque;
+    }
+
+    public Tipo getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
+    }
 }

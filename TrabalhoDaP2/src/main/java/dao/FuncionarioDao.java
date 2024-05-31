@@ -11,6 +11,10 @@ public class FuncionarioDao {
         return em;
     }
 
+    public FuncionarioDao(EntityManager em) {
+        this.em = em;
+    }
+
     public void setEm(EntityManager em) {
         this.em = em;
     }

@@ -11,6 +11,10 @@ public class EnderecoDao {
         return em;
     }
 
+    public EnderecoDao(EntityManager em) {
+        this.em = em;
+    }
+
     public void setEm(EntityManager em) {
         this.em = em;
     }

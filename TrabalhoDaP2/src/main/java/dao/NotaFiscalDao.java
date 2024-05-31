@@ -11,6 +11,10 @@ public class NotaFiscalDao {
         return em;
     }
 
+    public NotaFiscalDao(EntityManager em) {
+        this.em = em;
+    }
+
     public void setEm(EntityManager em) {
         this.em = em;
     }

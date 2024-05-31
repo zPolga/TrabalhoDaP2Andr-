@@ -11,6 +11,10 @@ public class LoginDao {
         return em;
     }
 
+    public LoginDao(EntityManager em) {
+        this.em = em;
+    }
+
     public void setEm(EntityManager em) {
         this.em = em;
     }

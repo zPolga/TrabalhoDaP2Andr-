@@ -11,6 +11,10 @@ public class RegistroDao {
         return em;
     }
 
+    public RegistroDao(EntityManager em) {
+        this.em = em;
+    }
+
     public void setEm(EntityManager em) {
         this.em = em;
     }

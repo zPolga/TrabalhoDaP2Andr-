@@ -18,7 +18,8 @@ public class EstadoDao {
     public void setEm(EntityManager em) {
         this.em = em;
     }
-    public void Cadastrar(Estado e) {
+    public Estado Cadastrar(Estado e) {
         this.em.persist(e);
+        return e;
     }
 }

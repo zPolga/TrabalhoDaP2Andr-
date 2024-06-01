@@ -20,6 +20,7 @@ public class Registro {
     private Date dataSaidaProduto;
 
     @ManyToOne
+    @JoinColumn(name = "id_login")
     private Login login_id;
 
     public Registro() {

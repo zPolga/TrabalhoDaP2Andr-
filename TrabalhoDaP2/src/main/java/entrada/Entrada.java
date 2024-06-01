@@ -17,12 +17,16 @@ public class Entrada {
     @Column(name = "secao")
     private Integer sessao;
     @ManyToOne
+    @JoinColumn (name = "id_codbarras")
     private CodigoDeBarras codigoDeBarras;
     @ManyToOne
+    @JoinColumn (name = "id_estoque")
     private Estoque estoque;
     @ManyToOne
+    @JoinColumn (name = "id_login")
     private Login login;
     @OneToOne
+    @JoinColumn(name = "id_notafiscal")
     private NotaFiscal notaFiscal;
     public Entrada() {
     }
@@ -39,6 +43,7 @@ public class Entrada {
     }
 
     @ManyToOne
+    @JoinColumn (name = "id_registro")
     private Registro registro;
     @Id
     @Column (name = "id_entrada")

@@ -11,8 +11,10 @@ public class CodigoDeBarras {
     @Column (name = "id_codbarras")
     private Integer id;
     @ManyToOne
+    @JoinColumn (name = "id_estoque")
     private Estoque estoque;
     @ManyToOne
+    @JoinColumn (name = "id_tipo")
     private Tipo tipo;
 
     public Integer getId() {

@@ -12,7 +12,7 @@ public class Endereco {
     private String logradouro;
     private String cep;
     @ManyToOne
-
+    @JoinColumn (name = "id_cidade")
     private Cidade cidade;
 
     public Integer getId() {

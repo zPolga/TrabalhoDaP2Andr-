@@ -11,10 +11,10 @@ public class Funcionario {
     @Id
     @Column (name = "id_funcionario")
     private Integer id;
-    @Column (name = "mpme_completo")
+    @Column (name = "nome_completo")
     private String nomeCompleto;
 
-    public Funcionario(Integer id, String nomeCompleto, String CPF, String dtnascimento, String sexo, String telefone, String email, Date dataAdmissao, String cargo, String funcao, String salario, Endereco endereco, Login login) {
+    public Funcionario(Integer id, String nomeCompleto, String CPF, Date dtnascimento, String sexo, String telefone, String email, Date dataAdmissao, String cargo, String funcao, Double salario, Endereco endereco, Login login) {
         this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.CPF = CPF;
@@ -36,7 +36,7 @@ public class Funcionario {
     @Column (name = "cpf")
     private String CPF;
 
-    private String dtnascimento;
+    private Date dtnascimento;
     private String sexo;
     private String telefone;
     private String email;
@@ -44,21 +44,23 @@ public class Funcionario {
     private Date dataAdmissao;
     private String cargo;
     private String funcao;
-    private String salario;
+    private Double salario;
     @ManyToOne
+    @JoinColumn (name = "id_endereco")
     private Endereco endereco;
-    @OneToOne
+    @OneToOne(mappedBy = "funcionario", cascade = CascadeType.PERSIST)
+    @JoinColumn (name = "id_login")
     private Login login;
 
     public Integer getId() {
         return id;
     }
 
-    public String getDtnascimento() {
+    public Date getDtnascimento() {
         return dtnascimento;
     }
 
-    public void setDtnascimento(String dtnascimento) {
+    public void setDtnascimento(Date dtnascimento) {
         this.dtnascimento = dtnascimento;
     }
 
@@ -130,11 +132,11 @@ public class Funcionario {
         this.funcao = funcao;
     }
 
-    public String getSalario() {
+    public Double getSalario() {
         return salario;
     }
 
-    public void setSalario(String salario) {
+    public void setSalario(Double salario) {
         this.salario = salario;
     }
 

@@ -12,6 +12,7 @@ public class Validade {
     @Column (name = "dtFabricacao")
     private String dataFabricacao;
     @ManyToOne
+    @JoinColumn (name = "id_entrada")
     private Entrada entrada;
 
     public Validade() {

@@ -1,8 +1,10 @@
 package cidade;
 
 import estado.Estado;
+import estoque.Estoque;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Cidade {
@@ -10,12 +12,22 @@ public class Cidade {
     @Column (name = "id_cidade")
     private Integer id;
     private String nome;
-    @ManyToOne
-
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn (name= "id_estado")
     private Estado estado;
 
+    @OneToMany(mappedBy = "cidade", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Estoque> estoques;
     public Integer getId() {
         return id;
+    }
+
+    public List<Estoque> getEstoques() {
+        return estoques;
+    }
+
+    public void setEstoques(List<Estoque> estoques) {
+        this.estoques = estoques;
     }
 
     public Cidade() {

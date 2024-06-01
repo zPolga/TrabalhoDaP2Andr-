@@ -13,8 +13,10 @@ public class Login {
     private String nome;
     private String senha;
     @OneToOne
+    @JoinColumn (name = "id_funcionario")
     private Funcionario funcionario;
     @ManyToOne
+    @JoinColumn (name="id_estoque")
     private Estoque estoque;
 
     public Login() {

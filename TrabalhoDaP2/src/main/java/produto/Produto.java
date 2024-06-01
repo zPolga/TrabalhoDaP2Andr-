@@ -28,14 +28,19 @@ public class Produto {
     @Column (name = "qtde_min")
     private double quantidadeMinima;
     @ManyToOne
+    @JoinColumn (name = "id_codbarras")
     private CodigoDeBarras codigoDeBarras;
     @ManyToOne
+    @JoinColumn (name = "id_validade")
     private Validade validade;
     @ManyToOne
+    @JoinColumn (name = "id_entrada")
     private Entrada entrada;
     @ManyToOne
+    @JoinColumn (name = "id_saida")
     private Saida saida;
     @ManyToOne
+    @JoinColumn (name = "id_estoque")
     private Estoque estoque;
 
     public Produto(Integer id, String marca, String categoria, double qtdRecebida, double precoDoProduto, double precoDeVenda, String fornecedor, Date dataValidade, double quantidadeMinima, CodigoDeBarras codigoDeBarras, Validade validade, Entrada entrada, Saida saida, Estoque estoque) {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="telas.Inicio">
-  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+  <grid id="27dc6" binding="painelPrincipal" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
     </constraints>
@@ -10,57 +10,46 @@
     </properties>
     <border type="none"/>
     <children>
-      <grid id="93daf" layout-manager="BorderLayout" hgap="1024" vgap="920">
-        <constraints border-constraint="South"/>
+      <grid id="26f94" binding="labels" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="North"/>
         <properties/>
         <border type="none"/>
         <children>
-          <component id="e421" class="javax.swing.JLabel">
-            <constraints border-constraint="Center"/>
+          <component id="a5ee0" class="javax.swing.JLabel" binding="textoInicial">
+            <constraints/>
             <properties>
-              <text value="Bem vindo ao crack"/>
+              <text value="Bem vindo ao mercado"/>
             </properties>
           </component>
         </children>
       </grid>
-      <grid id="7af2f" layout-manager="BorderLayout" hgap="0" vgap="0">
+      <grid id="ae820" binding="botoes" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="South"/>
+        <properties/>
+        <border type="none"/>
+        <children/>
+      </grid>
+      <grid id="10074" binding="campos" layout-manager="GridBagLayout">
         <constraints border-constraint="Center"/>
-        <properties>
-          <preferredSize width="1024" height="850"/>
-        </properties>
+        <properties/>
         <border type="none"/>
         <children>
-          <component id="62664" class="javax.swing.JTextField" binding="crackTextField" default-binding="true">
-            <constraints border-constraint="Center"/>
+          <component id="23134" class="javax.swing.JButton" binding="entrar">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
             <properties>
-              <columns value="16"/>
-              <foreground color="-4463353"/>
-              <horizontalAlignment value="0"/>
-              <preferredSize width="182" height="820"/>
-              <text value="crack"/>
-            </properties>
-          </component>
-          <component id="80444" class="javax.swing.JTextField" binding="vfggggghgTextField" default-binding="true">
-            <constraints border-constraint="West"/>
-            <properties>
-              <foreground color="-1752466"/>
-              <horizontalAlignment value="0"/>
-              <text value="vfggggghg"/>
-            </properties>
-          </component>
-          <component id="4f10c" class="javax.swing.JButton" binding="entrarButton" default-binding="true">
-            <constraints border-constraint="North"/>
-            <properties>
-              <background color="-14141211"/>
-              <foreground color="-14141211"/>
-              <horizontalAlignment value="0"/>
-              <inheritsPopupMenu value="true"/>
-              <margin top="10" left="0" bottom="10" right="0"/>
-              <maximumSize width="18" height="30"/>
-              <minimumSize width="18" height="30"/>
-              <preferredSize width="18" height="30"/>
-              <selected value="false"/>
               <text value="Entrar"/>
+            </properties>
+          </component>
+          <component id="5d2e7" class="javax.swing.JButton" binding="cadastrar">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="Cadastrar"/>
             </properties>
           </component>
         </children>

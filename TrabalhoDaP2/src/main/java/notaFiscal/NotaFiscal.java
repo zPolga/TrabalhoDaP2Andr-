@@ -29,10 +29,12 @@ public class NotaFiscal {
     @Column (name = "nmempresa")
     private String nomeEmpresa;
     @ManyToOne
+    @JoinColumn (name = "id_endereco")
     private Endereco endereco;
     @OneToOne
     private Entrada entrada;
     @OneToOne
+    @JoinColumn (name = "id_saida")
     private Saida saida;
 
     public String getCnpj() {

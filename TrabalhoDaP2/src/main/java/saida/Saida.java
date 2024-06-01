@@ -19,12 +19,16 @@ public class Saida {
 
     private String motivo;
     @ManyToOne
+    @JoinColumn (name = "id_estoque")
     private Estoque estoque;
     @ManyToOne
+    @JoinColumn (name = "id_codbarras")
     private CodigoDeBarrasSaida codigoDeBarras;
     @ManyToOne
+    @JoinColumn (name = "id_registro")
     private Registro registro;
     @ManyToOne
+    @JoinColumn (name = "id_login")
     private Login login;
 
     public Saida() {

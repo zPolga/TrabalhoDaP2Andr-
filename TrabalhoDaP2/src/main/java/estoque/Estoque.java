@@ -1,22 +1,34 @@
 package estoque;
 
+import cidade.Cidade;
+
 import javax.persistence.*;
 
 @Entity
 public class Estoque {
     @Id
-    @Column (name = "id_estoque")
+    @Column(name = "id_estoque")
     private Integer id;
-    @Column (name = "est_atual")
-    private String estadoAtual;
-    @Column (name = "est_anterior")
-    private String estadoAnterior;
-    @Column (name = "qtdesaida")
+
+    @Column(name = "est_atual")
+    private Integer estadoAtual;
+
+    @Column(name = "est_anterior")
+    private Integer estadoAnterior;
+
+    @Column(name = "qtdesaida")
     private double qtdSaida;
-    @Column (name = "qtdeEntrada")
+
+    @Column(name = "qtdeEntrada")
     private double qtdEntrada;
 
-    public Estoque(Integer id, String estadoAtual, String estadoAnterior, double qtdSaida, double qtdEntrada) {
+    @ManyToOne
+    @JoinColumn(name = "id_cidade")
+    private Cidade cidade;
+
+    public Estoque() {}
+
+    public Estoque(Integer id, Integer estadoAtual, Integer estadoAnterior, double qtdSaida, double qtdEntrada) {
         this.id = id;
         this.estadoAtual = estadoAtual;
         this.estadoAnterior = estadoAnterior;
@@ -24,8 +36,7 @@ public class Estoque {
         this.qtdEntrada = qtdEntrada;
     }
 
-    public Estoque() {
-    }
+    // Getters and setters
 
     public Integer getId() {
         return id;
@@ -35,19 +46,19 @@ public class Estoque {
         this.id = id;
     }
 
-    public String getEstadoAtual() {
+    public Integer getEstadoAtual() {
         return estadoAtual;
     }
 
-    public void setEstadoAtual(String estadoAtual) {
+    public void setEstadoAtual(Integer estadoAtual) {
         this.estadoAtual = estadoAtual;
     }
 
-    public String getEstadoAnterior() {
+    public Integer getEstadoAnterior() {
         return estadoAnterior;
     }
 
-    public void setEstadoAnterior(String estadoAnterior) {
+    public void setEstadoAnterior(Integer estadoAnterior) {
         this.estadoAnterior = estadoAnterior;
     }
 
@@ -65,5 +76,13 @@ public class Estoque {
 
     public void setQtdEntrada(double qtdEntrada) {
         this.qtdEntrada = qtdEntrada;
+    }
+
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
     }
 }

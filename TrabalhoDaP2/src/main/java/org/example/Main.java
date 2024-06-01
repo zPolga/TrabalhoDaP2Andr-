@@ -17,8 +17,6 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         Estado est = new Estado(32,"Amazonas", "AM");
@@ -41,7 +39,6 @@ public class Main {
             EstadoDao estadoDao = new EstadoDao(em);
             Estado estado = estadoDao.Cadastrar(estadoo); // Cadastre o estado e obtenha o objeto gerenciado
 
-            // Verifique se o estado foi persistido corretamente
             if (estado != null) {
                 Cidade cid = new Cidade(22, "Deodapolis", estado);
                 Estoque estoque = new Estoque(22,2, 3, 22, 332);
@@ -49,19 +46,14 @@ public class Main {
                 Login log = new Login(23, "Lucas", "2323", null, estoque); // Funcionário definido como null para evitar referência circular
                 Funcionario fun = new Funcionario(22, "Lucas", "2232132213", new Date(), "m/d", "99932932", "lucas@gmail.com", new Date(), "gerente", "soldado", 323.2, end, log);
 
-                // Associe o funcionário ao login
                 log.setFuncionario(fun);
 
-                // Associe o login ao funcionário
                 fun.setLogin(log);
 
-                // Associe a cidade ao estoque
                 estoque.setCidade(cid);
 
-                // Associe o estoque à cidade
                 cid.setEstoques(Collections.singletonList(estoque));
 
-                // Persista todas as entidades relacionadas
                 em.persist(cid);
                 em.persist(estoque);
                 em.persist(end);

@@ -1,13 +1,10 @@
 package dao;
 
-import produto.Produto;
-import registro.Registro;
+import entidades.Registro;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.ResourceBundle;
 
 public class RegistroDao {
     private EntityManager em;

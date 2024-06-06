@@ -1,6 +1,6 @@
 package dao;
 
-import cidade.Cidade;
+import entidades.Cidade;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;

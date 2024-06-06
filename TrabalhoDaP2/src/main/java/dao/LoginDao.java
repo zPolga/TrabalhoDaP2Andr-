@@ -1,7 +1,6 @@
 package dao;
 
-import funcionario.Funcionario;
-import login.Login;
+import entidades.Login;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;

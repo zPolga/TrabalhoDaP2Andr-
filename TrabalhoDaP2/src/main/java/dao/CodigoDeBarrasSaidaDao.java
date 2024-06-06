@@ -1,6 +1,6 @@
 package dao;
 
-import codigoDeBarrasSaida.CodigoDeBarrasSaida;
+import entidades.CodigoDeBarrasSaida;
 
 import javax.persistence.EntityManager;
 

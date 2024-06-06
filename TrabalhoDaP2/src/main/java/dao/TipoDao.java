@@ -1,7 +1,6 @@
 package dao;
 
-import registro.Registro;
-import tipo.Tipo;
+import entidades.Tipo;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;

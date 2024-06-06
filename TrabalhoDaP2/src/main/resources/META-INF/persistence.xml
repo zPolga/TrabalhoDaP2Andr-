@@ -3,21 +3,21 @@
 
     <persistence-unit name="mercado" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <class>cidade.Cidade</class>
-        <class>codigoDeBarras.CodigoDeBarras</class>
-        <class>codigoDeBarrasSaida.CodigoDeBarrasSaida</class>
-        <class>endereco.Endereco</class>
-        <class>entrada.Entrada</class>
-        <class>estado.Estado</class>
-        <class>estoque.Estoque</class>
-        <class>notaFiscal.NotaFiscal</class>
-        <class>login.Login</class>
-        <class>produto.Produto</class>
-        <class>registro.Registro</class>
-        <class>saida.Saida</class>
-        <class>validade.Validade</class>
-        <class>tipo.Tipo</class>
-        <class>funcionario.Funcionario</class>
+        <class>entidades.Cidade</class>
+        <class>entidades.CodigoDeBarras</class>
+        <class>entidades.CodigoDeBarrasSaida</class>
+        <class>entidades.Endereco</class>
+        <class>entidades.Entrada</class>
+        <class>entidades.Estado</class>
+        <class>entidades.Estoque</class>
+        <class>entidades.NotaFiscal</class>
+        <class>entidades.Login</class>
+        <class>entidades.Produto</class>
+        <class>entidades.Registro</class>
+        <class>entidades.Saida</class>
+        <class>entidades.Validade</class>
+        <class>entidades.Tipo</class>
+        <class>entidades.Funcionario</class>
 
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://127.0.0.1:5432/mercado"/>

@@ -1,7 +1,6 @@
 package dao;
 
-import registro.Registro;
-import validade.Validade;
+import entidades.Validade;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;

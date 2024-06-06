@@ -1,7 +1,6 @@
 package dao;
 
-import codigoDeBarras.CodigoDeBarras;
-import endereco.Endereco;
+import entidades.Endereco;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;

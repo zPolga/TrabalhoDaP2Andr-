@@ -1,13 +1,17 @@
 package dao;
 
-import codigoDeBarras.CodigoDeBarras;
+import entidades.CodigoDeBarras;
+import util.JpaUtil;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class CodigoDeBarrasDao {
     private EntityManager em;
+
+
 
     public EntityManager getEm() {
         return em;

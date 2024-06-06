@@ -1,7 +1,6 @@
 package dao;
 
-import notaFiscal.NotaFiscal;
-import produto.Produto;
+import entidades.Produto;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;

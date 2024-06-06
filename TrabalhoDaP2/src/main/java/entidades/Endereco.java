@@ -1,6 +1,4 @@
-package endereco;
-
-import cidade.Cidade;
+package entidades;
 
 import javax.persistence.*;
 

@@ -1,6 +1,6 @@
 package dao;
 
-import estado.Estado;
+import entidades.Estado;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;

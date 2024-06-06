@@ -1,8 +1,11 @@
 package telas;
 
+import controller.ProdutoController;
+import telas.cadastro.Cadastro;
+
 import javax.swing.*;
 
-public class Inicio {
+public class Inicio  {
     private JPanel painelPrincipal;
     private JPanel botoes;
     private JPanel campos;
@@ -14,7 +17,21 @@ public class Inicio {
         JFrame frame = new JFrame("Cadastro Material");
         frame.setContentPane(painelPrincipal);
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        frame.setSize(600,500);
+        frame.setSize(800,700);
         frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
+        acoes();
     }
+    public void acoes() {
+
+
+        cadastrar.addActionListener(e -> new Cadastro().setVisible(true));
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            Inicio inicio = new Inicio();
+        });
+    }
+
 }

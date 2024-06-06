@@ -1,7 +1,6 @@
 package dao;
 
-import login.Login;
-import notaFiscal.NotaFiscal;
+import entidades.NotaFiscal;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;

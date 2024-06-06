@@ -1,4 +1,4 @@
-package estado;
+package entidades;
 
 import javax.persistence.*;
 

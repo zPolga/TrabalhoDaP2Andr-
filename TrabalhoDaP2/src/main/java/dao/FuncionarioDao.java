@@ -1,7 +1,6 @@
 package dao;
 
-import estoque.Estoque;
-import funcionario.Funcionario;
+import entidades.Funcionario;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;

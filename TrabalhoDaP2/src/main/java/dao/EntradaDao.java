@@ -1,9 +1,7 @@
 package dao;
 
-import endereco.Endereco;
-import entrada.Entrada;
-import estado.Estado;
-import estoque.Estoque;
+import entidades.Entrada;
+import entidades.Estado;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;

@@ -1,10 +1,4 @@
-package produto;
-
-import codigoDeBarras.CodigoDeBarras;
-import entrada.Entrada;
-import estoque.Estoque;
-import saida.Saida;
-import validade.Validade;
+package entidades;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,6 +7,7 @@ import java.util.Date;
 public class Produto {
     @Id
     @Column (name = "id_produto")
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private Integer id;
     private String marca;
     private String categoria;
@@ -43,21 +38,17 @@ public class Produto {
     @JoinColumn (name = "id_estoque")
     private Estoque estoque;
 
-    public Produto(Integer id, String marca, String categoria, double qtdRecebida, double precoDoProduto, double precoDeVenda, String fornecedor, Date dataValidade, double quantidadeMinima, CodigoDeBarras codigoDeBarras, Validade validade, Entrada entrada, Saida saida, Estoque estoque) {
-        this.id = id;
+    public Produto( String marca, String categoria, String fornecedor, double qtdRecebida, double precoDoProduto, double precoDeVenda, Date dataValidade, double quantidadeMinima) {
+
         this.marca = marca;
         this.categoria = categoria;
         this.qtdRecebida = qtdRecebida;
         this.precoDoProduto = precoDoProduto;
         this.precoDeVenda = precoDeVenda;
-        this.fornecedor = fornecedor;
+        this.fornecedor =fornecedor;
         this.dataValidade = dataValidade;
         this.quantidadeMinima = quantidadeMinima;
-        this.codigoDeBarras = codigoDeBarras;
-        this.validade = validade;
-        this.entrada = entrada;
-        this.saida = saida;
-        this.estoque = estoque;
+
     }
 
     public Produto() {

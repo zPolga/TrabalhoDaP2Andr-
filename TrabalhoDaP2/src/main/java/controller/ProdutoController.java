@@ -3,11 +3,8 @@ package controller;
 import dao.ProdutoDao;
 import entidades.Produto;
 import telas.Inicio;
-import telas.cadastro.Cadastro;
-import util.JpaUtil;
+import telas.cadastro.CadastroProduto;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.swing.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,7 +13,7 @@ import java.util.Date;
 public class ProdutoController  {
 
 
-    public void acoes(Cadastro cadastro) {
+    public void acoes(CadastroProduto cadastro) {
         cadastro.getSalvarPrimeiroCampo().addActionListener(e -> {
             String marca = cadastro.getMarca().getText();
             String categoria = cadastro.getCategoria().getText();
@@ -40,20 +37,15 @@ public class ProdutoController  {
 
 
                         Produto produto = new Produto(marca, categoria,fornecedor, qtdRecebidaFormatada,precoProdConvertido, precoVendaFormatado, dataConvertida, QtdMinimaEstoqueFormatada);
-                        EntityManager em = JpaUtil.getEntityManager();
-                        EntityTransaction etx = em.getTransaction();
-                        try {
-                            etx.begin();
-                            ProdutoDao produtoDao = new ProdutoDao(em);
+
+
+
+                            ProdutoDao produtoDao = new ProdutoDao();
                             produtoDao.Cadastrar(produto);
-                            etx.commit();
+
                             JOptionPane.showMessageDialog(null, "Gravado com sucesso!");
 
-                        } catch (Exception exception) {
-                            etx.rollback();
-                        } finally {
-                            em.close();
-                        }
+
                     }
 
                 } catch (ParseException exception) {

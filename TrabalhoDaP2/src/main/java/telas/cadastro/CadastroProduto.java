@@ -3,11 +3,10 @@ package telas.cadastro;
 import controller.CodigoDeBarrasController;
 import controller.ProdutoController;
 
-import javax.persistence.Column;
 import javax.swing.*;
 import java.awt.*;
 
-public class Cadastro extends JFrame {
+public class CadastroProduto extends JFrame {
     private JTextField marca;
     private JLabel titulo;
     private JTextField categoria;
@@ -281,12 +280,12 @@ public class Cadastro extends JFrame {
     private JPanel painelDois;
     private JLabel tituloSegundoCampo;
     public void Configurar() {
-        setTitle("Cadastro");
+        setTitle("Cadastro de ");
         setSize(800,700);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
     }
-   public Cadastro() {
+   public CadastroProduto() {
         Configurar();
         Alocar();
         ProdutoController controller = new ProdutoController();

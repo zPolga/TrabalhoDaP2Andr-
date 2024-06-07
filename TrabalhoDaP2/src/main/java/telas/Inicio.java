@@ -1,7 +1,7 @@
 package telas;
 
-import controller.ProdutoController;
-import telas.cadastro.Cadastro;
+import telas.cadastro.CadastroFuncionario;
+import telas.cadastro.CadastroProduto;
 
 import javax.swing.*;
 
@@ -13,6 +13,8 @@ public class Inicio  {
     private JButton entrar;
     private JButton cadastrar;
     private JLabel textoInicial;
+    private JButton cadastrarFuncionario;
+
     public Inicio() {
         JFrame frame = new JFrame("Cadastro Material");
         frame.setContentPane(painelPrincipal);
@@ -25,7 +27,8 @@ public class Inicio  {
     public void acoes() {
 
 
-        cadastrar.addActionListener(e -> new Cadastro().setVisible(true));
+        cadastrar.addActionListener(e -> new CadastroProduto().setVisible(true));
+        cadastrarFuncionario.addActionListener(e -> new CadastroFuncionario().setVisible(true));
     }
 
     public static void main(String[] args) {

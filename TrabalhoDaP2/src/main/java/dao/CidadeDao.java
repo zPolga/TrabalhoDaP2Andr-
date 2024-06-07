@@ -16,8 +16,7 @@ public class CidadeDao {
         return em;
     }
 
-    public CidadeDao(EntityManager em) {
-        this.em = em;
+    public CidadeDao( ) {
     }
 
     public void setEm(EntityManager em) {
@@ -33,6 +32,9 @@ public class CidadeDao {
         return query.getResultList();
     }
     public void Remover(Cidade c){
-        this.em.remove(c);
+
+        etx.begin();
+        em.remove(c);
+        etx.commit();
     }
 }

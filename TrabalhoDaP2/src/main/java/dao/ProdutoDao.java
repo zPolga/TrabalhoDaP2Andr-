@@ -16,8 +16,7 @@ public class ProdutoDao {
         return em;
     }
 
-    public ProdutoDao(EntityManager em) {
-        this.em = em;
+    public ProdutoDao() {
     }
 
     public void setEm(EntityManager em) {
@@ -29,7 +28,10 @@ public class ProdutoDao {
         etx.commit();
     }
     public void Remover(Produto p){
-        this.em.remove(p);
+
+        etx.begin();
+        em.remove(p);
+        etx.commit();
     }
     public List<Produto> ListarProduto() {
         TypedQuery<Produto> query = em.createQuery("SELECT p from Produto p ", Produto.class);

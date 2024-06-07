@@ -16,8 +16,8 @@ public class EnderecoDao {
         return em;
     }
 
-    public EnderecoDao(EntityManager em) {
-        this.em = em;
+    public EnderecoDao( ) {
+
     }
 
     public void setEm(EntityManager em) {
@@ -30,11 +30,14 @@ public class EnderecoDao {
     }
 
     public void Remover(Endereco e){
-        this.em.remove(e);
+
+        etx.begin();
+        em.remove(e);
+        etx.commit();
     }
 
     public List<Endereco> ListarEndereco() {
-        TypedQuery<Endereco> query = em.createQuery("SELECT e from Endereço e ", Endereco.class);
+        TypedQuery<Endereco> query = em.createQuery("SELECT e from Endereco e ", Endereco.class);
         return query.getResultList();
     }
 }

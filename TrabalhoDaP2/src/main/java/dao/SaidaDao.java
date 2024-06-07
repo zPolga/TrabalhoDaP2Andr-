@@ -16,8 +16,8 @@ public class SaidaDao {
         return em;
     }
 
-    public SaidaDao(EntityManager em) {
-        this.em = em;
+    public SaidaDao() {
+
     }
 
     public void setEm(EntityManager em) {
@@ -29,7 +29,10 @@ public class SaidaDao {
         etx.commit();
     }
     public void Remover(Saida s){
-        this.em.remove(s);
+
+        etx.begin();
+        em.remove(s);
+        etx.commit();
     }
     public List<Saida> ListarSaida() {
         TypedQuery<Saida> query = em.createQuery("SELECT s from Saida s ", Saida.class);

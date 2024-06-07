@@ -16,8 +16,8 @@ public class NotaFiscalDao {
         return em;
     }
 
-    public NotaFiscalDao(EntityManager em) {
-        this.em = em;
+    public NotaFiscalDao() {
+
     }
 
     public void setEm(EntityManager em) {
@@ -29,8 +29,10 @@ public class NotaFiscalDao {
         etx.commit();
     }
     public void Remover(NotaFiscal n){
-        this.em.remove(n);
-    }
+
+        etx.begin();
+        em.remove(n);
+        etx.commit();    }
     public List<NotaFiscal> ListarNotaFiscal() {
         TypedQuery<NotaFiscal> query = em.createQuery("SELECT n from NotaFiscal n ", NotaFiscal.class);
         return query.getResultList();

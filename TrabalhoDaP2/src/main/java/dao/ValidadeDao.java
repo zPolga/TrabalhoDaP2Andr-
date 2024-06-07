@@ -16,8 +16,8 @@ public class ValidadeDao {
         return em;
     }
 
-    public ValidadeDao(EntityManager em) {
-        this.em = em;
+    public ValidadeDao() {
+
     }
 
     public void setEm(EntityManager em) {
@@ -29,7 +29,9 @@ public class ValidadeDao {
         etx.commit();
     }
     public void Remover(Validade v){
-        this.em.remove(v);
+        etx.begin();
+        em.remove(v);
+        etx.commit();
     }
     public List<Validade> ListarValidade() {
         TypedQuery<Validade> query = em.createQuery("SELECT v from Validade v ", Validade.class);

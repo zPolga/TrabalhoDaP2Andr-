@@ -15,8 +15,7 @@ public class EstadoDao {
         return em;
     }
 
-    public EstadoDao(EntityManager em) {
-        this.em = em;
+    public EstadoDao() {
     }
 
     public void setEm(EntityManager em) {
@@ -28,7 +27,10 @@ public class EstadoDao {
         etx.commit();
     }
     public void Remover(Estado e){
-        this.em.remove(e);
+
+        etx.begin();
+        em.remove(e);
+        etx.commit();
     }
     public List<Estado> ListarEstado() {
         TypedQuery<Estado> query = em.createQuery("SELECT e from Estado e ", Estado.class);

@@ -13,8 +13,8 @@ public class CodigoDeBarrasSaidaDao {
         return em;
     }
 
-    public CodigoDeBarrasSaidaDao(EntityManager em) {
-        this.em = em;
+    public CodigoDeBarrasSaidaDao( ) {
+
     }
 
     public void setEm(EntityManager em) {
@@ -23,6 +23,12 @@ public class CodigoDeBarrasSaidaDao {
     public void Cadastrar(CodigoDeBarrasSaida c) {
         etx.begin();
         this.em.persist(c);
+        etx.commit();
+    }
+    public void Remover(CodigoDeBarrasSaida c) {
+
+        etx.begin();
+        em.remove(c);
         etx.commit();
     }
 }

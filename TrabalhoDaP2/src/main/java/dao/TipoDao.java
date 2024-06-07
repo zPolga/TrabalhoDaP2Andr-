@@ -8,7 +8,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class TipoDao extends Dao {
+public class TipoDao  {
      EntityManager em = JpaUtil.getEntityManager();
     EntityTransaction etx = em.getTransaction();
     public EntityManager getEm() {
@@ -27,7 +27,10 @@ public class TipoDao extends Dao {
 
     }
     public void Remover(Tipo t){
-        this.em.remove(t);
+
+        etx.begin();
+        em.remove(t);
+        etx.commit();
     }
     public List<Tipo> ListarTipo() {
         TypedQuery<Tipo> query = em.createQuery("SELECT t from Tipo t ", Tipo.class);

@@ -30,7 +30,10 @@ public class EstoqueDao {
     }
 
     public void Remover(Estoque e){
-        this.em.remove(e);
+
+        etx.begin();
+        em.remove(e);
+        etx.commit();
     }
     public List<Estoque> ListarEstoque() {
         TypedQuery<Estoque> query = em.createQuery("SELECT e from Estoque e ", Estoque.class);

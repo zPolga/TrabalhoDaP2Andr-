@@ -15,27 +15,25 @@ public class FuncionarioDao {
         return em;
     }
 
-    public EntityTransaction getEtx() {
-        return etx;
-    }
 
-    public void setEtx(EntityTransaction etx) {
-        this.etx = etx;
-    }
 
-    public FuncionarioDao(EntityManager em) {
-        this.em = em;
+    public FuncionarioDao()
+    {
+
     }
 
     public void setEm(EntityManager em) {
         this.em = em;
     }
     public void Cadastrar(Funcionario f) {
-        this.em.persist(f);
+
+        etx.begin();
+        em.persist(f);
+        etx.commit();
     }
     public void Remover(Funcionario f){
         etx.begin();
-        em.persist(f);
+        em.remove(f);
         etx.commit();
     }
     public List<Funcionario> ListarFuncionario() {

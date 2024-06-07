@@ -16,8 +16,8 @@ public class LoginDao {
         return em;
     }
 
-    public LoginDao(EntityManager em) {
-        this.em = em;
+    public LoginDao() {
+
     }
 
     public void setEm(EntityManager em) {
@@ -30,7 +30,10 @@ public class LoginDao {
     }
 
     public void Remover(Login l){
-        this.em.remove(l);
+
+        etx.begin();
+        em.remove(l);
+        etx.commit();
     }
     public List<Login> ListarLogin() {
         TypedQuery<Login> query = em.createQuery("SELECT l from Login l ", Login.class);

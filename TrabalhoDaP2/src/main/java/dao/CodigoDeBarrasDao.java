@@ -3,7 +3,6 @@ package dao;
 import entidades.CodigoDeBarras;
 import util.JpaUtil;
 
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
@@ -29,7 +28,10 @@ public class CodigoDeBarrasDao {
 
     }
     public void Remover(CodigoDeBarras c){
-        this.em.remove(c);
+
+        etx.begin();
+        em.remove(c);
+        etx.commit();
     }
     public List<CodigoDeBarras> ListarCodigoDeBarras() {
         TypedQuery<CodigoDeBarras>query = em.createQuery("SELECT c from CodigoDeBarras c ", CodigoDeBarras.class);

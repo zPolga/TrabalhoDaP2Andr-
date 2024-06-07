@@ -5,19 +5,14 @@ import dao.EstoqueDao;
 import dao.TipoDao;
 import entidades.CodigoDeBarras;
 import entidades.Estoque;
-import entidades.Funcionario;
 import entidades.Tipo;
-import telas.cadastro.Cadastro;
-import util.JpaUtil;
+import telas.cadastro.CadastroProduto;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.swing.*;
-import java.text.ParseException;
 
 public class CodigoDeBarrasController {
 
-    public void acoes(Cadastro cadastro) {
+    public void acoes(CadastroProduto cadastro) {
 
          cadastro.getBotaoSegundoCampo().addActionListener(e -> {
             String codigoDebarras = cadastro.getCodigoBarras().getText();

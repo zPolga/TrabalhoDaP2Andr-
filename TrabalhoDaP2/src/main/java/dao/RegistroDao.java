@@ -16,8 +16,8 @@ public class RegistroDao {
         return em;
     }
 
-    public RegistroDao(EntityManager em) {
-        this.em = em;
+    public RegistroDao() {
+
     }
 
     public void setEm(EntityManager em) {
@@ -29,7 +29,10 @@ public class RegistroDao {
         etx.commit();
     }
     public void Remover(Registro r){
-        this.em.remove(r);
+
+        etx.begin();
+        em.remove(r);
+        etx.commit();
     }
     public List<Registro> ListarRegistro() {
         TypedQuery<Registro> query = em.createQuery("SELECT r from Registro r ", Registro.class);

@@ -1,7 +1,4 @@
-package funcionario;
-
-import endereco.Endereco;
-import login.Login;
+package entidades;
 
 import javax.persistence.*;
 import java.util.Date;

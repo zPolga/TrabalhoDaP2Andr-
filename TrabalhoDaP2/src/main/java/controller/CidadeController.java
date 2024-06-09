@@ -1,6 +1,6 @@
 package controller;
 
-import cidade.Cidade;
+import entidades.Cidade;
 import util.JpaUtil;
 
 import javax.persistence.EntityManager;

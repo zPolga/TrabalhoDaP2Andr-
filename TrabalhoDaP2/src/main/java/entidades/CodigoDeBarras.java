@@ -1,11 +1,12 @@
-package codigoDeBarras;
+package entidades;
 
-import estoque.Estoque;
-import tipo.Tipo;
+import entidades.Estoque;
+import entidades.Tipo;
 
 import javax.persistence.*;
 
 @Entity
+@Table(name = "codbarras")
 public class CodigoDeBarras {
     @Id
     @Column (name = "id_codbarras")
@@ -24,11 +25,12 @@ public class CodigoDeBarras {
     public CodigoDeBarras() {
     }
 
-    public CodigoDeBarras(Integer id, Estoque estoque, Tipo tipo) {
+    public CodigoDeBarras(Integer id ,Estoque estoque, Tipo tipo) {
         this.id = id;
         this.estoque = estoque;
         this.tipo = tipo;
     }
+
 
     public void setId(Integer id) {
         this.id = id;

@@ -1,7 +1,4 @@
-package login;
-
-import estoque.Estoque;
-import funcionario.Funcionario;
+package entidades;
 
 import javax.persistence.*;
 

@@ -1,4 +1,4 @@
-package tipo;
+package entidades;
 
 import javax.persistence.*;
 
@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class Tipo {
     @Id
     @Column (name = "id_tipo")
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private Integer id;
     private String descricao;
 
@@ -16,6 +17,10 @@ public class Tipo {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Tipo(String descricao) {
+        this.descricao = descricao;
     }
 
     public Tipo() {

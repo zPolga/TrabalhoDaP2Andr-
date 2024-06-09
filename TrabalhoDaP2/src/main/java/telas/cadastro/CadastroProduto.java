@@ -290,7 +290,7 @@ public class CadastroProduto extends JFrame {
 
 
     public void Configurar() {
-        setTitle("Cadastro de ");
+        setTitle("Cadastro de Produto");
         setSize(800,700);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);

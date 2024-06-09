@@ -2,53 +2,81 @@ package telas.produtosEntrada;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class EntradaProduto {
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Tela de Entrada de Produtos");
-        frame.setSize(500, 500);
+public class EntradaProduto extends JFrame {
 
-        JPanel panel2 = new JPanel();
-        panel2.setLayout(new GridLayout(1,1));
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(8, 2));
+    public EntradaProduto() {
+        configurar();
+        criarTela();
+    }
 
-        JLabel título = new JLabel("Entrada de Produtos");
-        título.setFont(new Font("Arial", Font.BOLD, 22));
-        frame.add(panel2);
-        panel.add(panel2);
-        panel2.add(título);
+    public void configurar() {
+        setTitle("Cadastro de Produto");
+        setSize(800, 700);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
+    }
 
-        JLabel labelCodigoBarras = new JLabel("Código de Barras do Produto:");
-        JTextField textFieldCodigoBarras = new JTextField();
-        panel.add(labelCodigoBarras);
-        panel.add(textFieldCodigoBarras);
+    public void criarTela() {
+        JPanel panel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.insets = new Insets(5, 5, 5, 5);
 
-        JLabel labelNotaFiscalNumero = new JLabel("Número da Nota Fiscal:");
-        JTextField textFieldNotaFiscalNumero = new JTextField();
-        panel.add(labelNotaFiscalNumero);
-        panel.add(textFieldNotaFiscalNumero);
+        JLabel titulo = new JLabel("Entrada de Produtos", SwingConstants.CENTER);
+        titulo.setFont(new Font("Arial", Font.BOLD, 22));
+        panel.add(titulo, gbc);
 
-        JLabel labelNotaFiscalSerie = new JLabel("Série da Nota Fiscal:");
-        JTextField textFieldNotaFiscalSerie = new JTextField();
-        panel.add(labelNotaFiscalSerie);
-        panel.add(textFieldNotaFiscalSerie);
+        gbc.gridy++;
+        panel.add(criarCampo("Número da Nota Fiscal:"), gbc);
 
-        JLabel labelNotaFiscalChave = new JLabel("Chave da Nota Fiscal:");
-        JTextField textFieldNotaFiscalChave = new JTextField();
-        panel.add(labelNotaFiscalChave);
-        panel.add(textFieldNotaFiscalChave);
+        gbc.gridy++;
+        panel.add(criarCampo("Série da Nota Fiscal:"), gbc);
 
-        JLabel labelNotaFiscalTipo = new JLabel("Tipo de Nota Fiscal:");
-        String[] tiposNotaFiscal = {"NF-e", "NFS-e", "CT-e", "Outro"};
-        JComboBox comboBoxNotaFiscalTipo = new JComboBox(tiposNotaFiscal);
-        panel.add(labelNotaFiscalTipo);
-        panel.add(comboBoxNotaFiscalTipo);
+        gbc.gridy++;
+        panel.add(criarCampo("Chave da Nota Fiscal:"), gbc);
 
-        JButton buttonSalvar = new JButton("Salvar");
-        panel.add(buttonSalvar);
+        gbc.gridy++;
+        panel.add(criarCampoComboBox("Tipo de Nota Fiscal:", new JComboBox<>(new String[]{"NF-e", "NFS-e", "CT-e", "Outro"})), gbc);
 
-        frame.add(panel);
-        frame.setVisible(true);
+        gbc.gridy++;
+        panel.add(criarCampo("Código de Barras do Produto:"), gbc);
+
+        gbc.gridy++;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        panel.add(criarBotao("Salvar"), gbc);
+
+        gbc.gridy++;
+        panel.add(criarBotao("Fechar"), gbc);
+
+        add(panel);
+    }
+
+    private JPanel criarCampo(String label) {
+        JPanel panel = new JPanel(new BorderLayout());
+        JLabel labelCampo = new JLabel(label);
+        JTextField textFieldCampo = new JTextField(15);
+        textFieldCampo.setPreferredSize(new Dimension(200, 30)); // Definindo tamanho preferido
+        panel.add(labelCampo, BorderLayout.NORTH);
+        panel.add(textFieldCampo, BorderLayout.CENTER);
+        return panel;
+    }
+
+    private JPanel criarCampoComboBox(String label, JComboBox<String> comboBox) {
+        JPanel panel = new JPanel(new BorderLayout());
+        JLabel labelCampo = new JLabel(label);
+        panel.add(labelCampo, BorderLayout.NORTH);
+        panel.add(comboBox, BorderLayout.CENTER);
+        return panel;
+    }
+
+    private JButton criarBotao(String texto) {
+        JButton button = new JButton(texto);
+        button.setPreferredSize(new Dimension(200, 30)); // Definindo tamanho preferido
+        return button;
+
     }
 }

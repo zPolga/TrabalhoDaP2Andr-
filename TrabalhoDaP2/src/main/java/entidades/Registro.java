@@ -1,6 +1,4 @@
-package registro;
-
-import login.Login;
+package entidades;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -1,6 +1,6 @@
-package validade;
+package entidades;
 
-import entrada.Entrada;
+import entidades.Entrada;
 
 import javax.persistence.*;
 

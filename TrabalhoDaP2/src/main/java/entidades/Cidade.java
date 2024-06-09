@@ -1,7 +1,7 @@
-package cidade;
+package entidades;
 
-import estado.Estado;
-import estoque.Estoque;
+import entidades.Estado;
+import entidades.Estoque;
 
 import javax.persistence.*;
 import java.util.List;

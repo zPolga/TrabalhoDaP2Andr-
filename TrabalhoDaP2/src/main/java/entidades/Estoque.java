@@ -1,12 +1,11 @@
-package estoque;
-
-import cidade.Cidade;
+package entidades;
 
 import javax.persistence.*;
 
 @Entity
 public class Estoque {
     @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
     @Column(name = "id_estoque")
     private Integer id;
 
@@ -28,12 +27,15 @@ public class Estoque {
 
     public Estoque() {}
 
-    public Estoque(Integer id, Integer estadoAtual, Integer estadoAnterior, double qtdSaida, double qtdEntrada) {
+    public Estoque( Integer estadoAtual, Integer estadoAnterior, double qtdSaida, double qtdEntrada) {
         this.id = id;
         this.estadoAtual = estadoAtual;
         this.estadoAnterior = estadoAnterior;
         this.qtdSaida = qtdSaida;
         this.qtdEntrada = qtdEntrada;
+    }
+    public Estoque(Integer estadoAtual) {
+        this.estadoAtual = estadoAtual;
     }
 
     // Getters and setters

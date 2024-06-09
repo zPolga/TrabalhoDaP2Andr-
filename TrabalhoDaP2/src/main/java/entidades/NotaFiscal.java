@@ -1,8 +1,4 @@
-package notaFiscal;
-
-import endereco.Endereco;
-import entrada.Entrada;
-import saida.Saida;
+package entidades;
 
 import javax.persistence.*;
 

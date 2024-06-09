@@ -1,10 +1,4 @@
-package saida;
-
-import codigoDeBarras.CodigoDeBarras;
-import codigoDeBarrasSaida.CodigoDeBarrasSaida;
-import estoque.Estoque;
-import login.Login;
-import registro.Registro;
+package entidades;
 
 import javax.persistence.*;
 import java.util.Date;

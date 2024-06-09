@@ -59,5 +59,10 @@
             <artifactId>org.eclipse.persistence.jpa</artifactId>
             <version>2.7.12</version>
         </dependency>
+        <dependency>
+            <groupId>com.toedter</groupId>
+            <artifactId>jcalendar</artifactId>
+            <version>1.4</version>
+        </dependency>
     </dependencies>
 </project>

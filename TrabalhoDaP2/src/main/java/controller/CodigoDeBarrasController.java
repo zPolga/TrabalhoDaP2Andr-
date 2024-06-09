@@ -17,16 +17,18 @@ public class CodigoDeBarrasController {
          cadastro.getBotaoSegundoCampo().addActionListener(e -> {
             String codigoDebarras = cadastro.getCodigoBarras().getText();
             String tipoCodBarras = cadastro.getTipoCodBarras().getName();
-            String qtdPorCaixa = cadastro.getQtdPorCaixa().getText();
+            String selecionado = (String) cadastro.getComboBox().getSelectedItem();
+
+             String qtdPorCaixa = cadastro.getQtdPorCaixa().getText();
             Integer qtdPorCaixaFormatado = Integer.parseInt(qtdPorCaixa);
-            Integer idCodVarras = Integer.parseInt(codigoDebarras);
+            Integer idCodBarras = Integer.parseInt(codigoDebarras);
             if (codigoDebarras.equals("") || tipoCodBarras.equals("") || qtdPorCaixa.equals("")) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
             } else {
 
-                Tipo tipo = new Tipo(tipoCodBarras);
+                Tipo tipo = new Tipo(selecionado);
                 Estoque est = new Estoque(qtdPorCaixaFormatado);
-                CodigoDeBarras codigoDeBarras = new CodigoDeBarras(idCodVarras, est, tipo);
+                CodigoDeBarras codigoDeBarras = new CodigoDeBarras(idCodBarras, est, tipo);
 
 
                 TipoDao tipoDao = new TipoDao();

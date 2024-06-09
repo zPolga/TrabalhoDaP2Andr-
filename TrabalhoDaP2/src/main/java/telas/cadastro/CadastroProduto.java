@@ -276,9 +276,19 @@ public class CadastroProduto extends JFrame {
     
     private JComboBox<String>comboBox ;
 
+    public JComboBox<String> getComboBox() {
+        return comboBox;
+    }
+
+    public void setComboBox(JComboBox<String> comboBox) {
+        this.comboBox = comboBox;
+    }
+
     private JButton salvarPrimeiroCampo;
     private JPanel painelDois;
     private JLabel tituloSegundoCampo;
+
+
     public void Configurar() {
         setTitle("Cadastro de ");
         setSize(800,700);
@@ -382,10 +392,11 @@ public class CadastroProduto extends JFrame {
         painelDoisCompleto.add(codigoBarras);
 
         painelDoisCompleto.add(new JLabel("Tipo de código de barras"));
-        comboBox = new JComboBox<>();
+        String[] options = {"Código unitário","Múltiplo de embalagem"};
+        comboBox = new JComboBox<>(options);
 
-        comboBox.addItem("Código unitário");
-        comboBox.addItem("Múltiplo de embalagem");
+
+
         painelDoisCompleto.add(comboBox);
 
 

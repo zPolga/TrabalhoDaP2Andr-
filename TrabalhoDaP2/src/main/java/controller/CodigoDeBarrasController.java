@@ -19,7 +19,7 @@ public class CodigoDeBarrasController {
             String tipoCodBarras = cadastro.getTipoCodBarras().getName();
             String selecionado = (String) cadastro.getComboBox().getSelectedItem();
 
-             String qtdPorCaixa = cadastro.getQtdPorCaixa().getText();
+            String qtdPorCaixa = cadastro.getQtdPorCaixa().getText();
             Integer qtdPorCaixaFormatado = Integer.parseInt(qtdPorCaixa);
             Integer idCodBarras = Integer.parseInt(codigoDebarras);
             if (codigoDebarras.equals("") || tipoCodBarras.equals("") || qtdPorCaixa.equals("")) {

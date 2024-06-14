@@ -1,42 +1,41 @@
 package dao;
 
 import entidades.Login;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import util.JpaUtil;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import javax.persistence.TypedQuery;
-import java.util.List;
+import javax.persistence.*;
 
 public class LoginDao {
     private  EntityManager em = JpaUtil.getEntityManager();
     EntityTransaction etx = em.getTransaction();
 
-    public EntityManager getEm() {
-        return em;
-    }
-
     public LoginDao() {
 
     }
 
-    public void setEm(EntityManager em) {
-        this.em = em;
-    }
-    public void Cadastrar(Login l) {
+    public void Cadastrar(Login login) {
+
+        String hashedSenha = BCrypt.hashpw(login.getSenha(), BCrypt.gensalt());
+        login.setSenha(hashedSenha);
+
         etx.begin();
-        em.persist(l);
+        em.persist(login);
         etx.commit();
     }
 
-    public void Remover(Login l){
+    public boolean autenticar(String usuario, String senha) {
+        try {
+            TypedQuery<Login> query = em.createQuery("SELECT l FROM Login l WHERE l.nome = :usuario", Login.class);
+            query.setParameter("usuario", usuario);
+            Login login = query.getSingleResult();
 
-        etx.begin();
-        em.remove(l);
-        etx.commit();
-    }
-    public List<Login> ListarLogin() {
-        TypedQuery<Login> query = em.createQuery("SELECT l from Login l ", Login.class);
-        return query.getResultList();
+            if (BCrypt.checkpw(senha, login.getSenha())) {
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return false;
     }
 }

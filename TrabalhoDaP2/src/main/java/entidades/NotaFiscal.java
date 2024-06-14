@@ -6,6 +6,15 @@ import javax.persistence.*;
 @Table (name = "notafiscal")
 public class NotaFiscal {
     private String cnpj;
+    private String chave;
+
+    public String getChave() {
+        return chave;
+    }
+
+    public void setChave(String chave) {
+        this.chave = chave;
+    }
 
     public NotaFiscal() {
     }

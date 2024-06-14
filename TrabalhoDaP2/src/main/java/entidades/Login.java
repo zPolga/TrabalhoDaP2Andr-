@@ -6,6 +6,7 @@ import javax.persistence.*;
 public class Login {
     @Id
     @Column (name = "id_login")
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private Integer Id;
     private String nome;
     private String senha;
@@ -17,6 +18,11 @@ public class Login {
     private Estoque estoque;
 
     public Login() {
+    }
+
+    public Login(String nome, String senha) {
+        this.nome = nome;
+        this.senha = senha;
     }
 
     public Login(Integer id, String nome, String senha, Funcionario funcionario, Estoque estoque) {

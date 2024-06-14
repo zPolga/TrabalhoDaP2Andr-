@@ -7,6 +7,14 @@ import java.awt.event.ActionListener;
 
 public class EntradaProduto extends JFrame {
 
+    private JTextField numeroNotaFiscalField;
+    private JTextField serieNotaFiscalField;
+    private JTextField chaveNotaFiscalField;
+    private JComboBox<String> tipoNotaFiscalComboBox;
+    private JTextField codigoBarrasField;
+    private JButton salvarButton;
+    private JButton fecharButton;
+
     public EntradaProduto() {
         configurar();
         criarTela();
@@ -31,37 +39,36 @@ public class EntradaProduto extends JFrame {
         panel.add(titulo, gbc);
 
         gbc.gridy++;
-        panel.add(criarCampo("Número da Nota Fiscal:"), gbc);
+        panel.add(criarCampo("Número da Nota Fiscal:", getNumeroNotaFiscalField()), gbc);
 
         gbc.gridy++;
-        panel.add(criarCampo("Série da Nota Fiscal:"), gbc);
+        panel.add(criarCampo("Série da Nota Fiscal:", getSerieNotaFiscalField()), gbc);
 
         gbc.gridy++;
-        panel.add(criarCampo("Chave da Nota Fiscal:"), gbc);
+        panel.add(criarCampo("Chave da Nota Fiscal:", getChaveNotaFiscalField()), gbc);
 
         gbc.gridy++;
-        panel.add(criarCampoComboBox("Tipo de Nota Fiscal:", new JComboBox<>(new String[]{"NF-e", "NFS-e", "CT-e", "Outro"})), gbc);
+        panel.add(criarCampoComboBox("Tipo de Nota Fiscal:", getTipoNotaFiscalComboBox()), gbc);
 
         gbc.gridy++;
-        panel.add(criarCampo("Código de Barras do Produto:"), gbc);
+        panel.add(criarCampo("Código de Barras do Produto:", getCodigoBarrasField()), gbc);
 
         gbc.gridy++;
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        panel.add(criarBotao("Salvar"), gbc);
+        panel.add(getSalvarButton(), gbc);
 
         gbc.gridy++;
-        panel.add(criarBotao("Fechar"), gbc);
+        panel.add(getFecharButton(), gbc);
 
         add(panel);
     }
 
-    private JPanel criarCampo(String label) {
+    private JPanel criarCampo(String label, JTextField textField) {
         JPanel panel = new JPanel(new BorderLayout());
         JLabel labelCampo = new JLabel(label);
-        JTextField textFieldCampo = new JTextField(15);
-        textFieldCampo.setPreferredSize(new Dimension(200, 30)); // Definindo tamanho preferido
+        textField.setPreferredSize(new Dimension(200, 30)); // Definindo tamanho preferido
         panel.add(labelCampo, BorderLayout.NORTH);
-        panel.add(textFieldCampo, BorderLayout.CENTER);
+        panel.add(textField, BorderLayout.CENTER);
         return panel;
     }
 
@@ -73,10 +80,70 @@ public class EntradaProduto extends JFrame {
         return panel;
     }
 
-    private JButton criarBotao(String texto) {
-        JButton button = new JButton(texto);
-        button.setPreferredSize(new Dimension(200, 30)); // Definindo tamanho preferido
-        return button;
+    public JTextField getNumeroNotaFiscalField() {
+        if (numeroNotaFiscalField == null) {
+            numeroNotaFiscalField = new JTextField(15);
+        }
+        return numeroNotaFiscalField;
+    }
 
+    public JTextField getSerieNotaFiscalField() {
+        if (serieNotaFiscalField == null) {
+            serieNotaFiscalField = new JTextField(15);
+        }
+        return serieNotaFiscalField;
+    }
+
+    public JTextField getChaveNotaFiscalField() {
+        if (chaveNotaFiscalField == null) {
+            chaveNotaFiscalField = new JTextField(15);
+        }
+        return chaveNotaFiscalField;
+    }
+
+    public JComboBox<String> getTipoNotaFiscalComboBox() {
+        if (tipoNotaFiscalComboBox == null) {
+            tipoNotaFiscalComboBox = new JComboBox<>(new String[]{"NF-e", "NFS-e", "CT-e", "Outro"});
+        }
+        return tipoNotaFiscalComboBox;
+    }
+
+    public JTextField getCodigoBarrasField() {
+        if (codigoBarrasField == null) {
+            codigoBarrasField = new JTextField(15);
+        }
+        return codigoBarrasField;
+    }
+
+    public JButton getSalvarButton() {
+        if (salvarButton == null) {
+            salvarButton = new JButton("Salvar");
+            salvarButton.setPreferredSize(new Dimension(200, 30));
+
+        }
+        return salvarButton;
+    }
+
+    public JButton getFecharButton() {
+        if (fecharButton == null) {
+            fecharButton = new JButton("Fechar");
+            fecharButton.setPreferredSize(new Dimension(200, 30));
+            fecharButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (e.getSource() == fecharButton) {
+                        dispose();
+                    }
+                }
+            });
+
+        }
+        return fecharButton;
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new EntradaProduto().setVisible(true);
+        });
     }
 }

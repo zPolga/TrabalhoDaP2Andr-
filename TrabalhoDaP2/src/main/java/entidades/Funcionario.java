@@ -7,9 +7,31 @@ import java.util.Date;
 public class Funcionario {
     @Id
     @Column (name = "id_funcionario")
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private Integer id;
     @Column (name = "nome_completo")
     private String nomeCompleto;
+    private String rg;
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    public Funcionario(String nomeCompleto, String rg, String CPF, Date dtnascimento, String sexo, String email, Date dataAdmissao, String cargo, String funcao) {
+        this.nomeCompleto = nomeCompleto;
+        this.rg = rg;
+        this.CPF = CPF;
+        this.dtnascimento = dtnascimento;
+        this.sexo = sexo;
+        this.email = email;
+        this.dataAdmissao = dataAdmissao;
+        this.cargo = cargo;
+        this.funcao = funcao;
+    }
 
     public Funcionario(Integer id, String nomeCompleto, String CPF, Date dtnascimento, String sexo, String telefone, String email, Date dataAdmissao, String cargo, String funcao, Double salario, Endereco endereco, Login login) {
         this.id = id;

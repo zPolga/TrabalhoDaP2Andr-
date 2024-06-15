@@ -1,5 +1,7 @@
 package telas.relatorios;
 
+import telas.RelatoriosTelas.ListandoFuncionarios;
+
 import javax.swing.*;
 
 public class RelatorioDeFuncionarios extends JFrame{
@@ -31,6 +33,9 @@ public class RelatorioDeFuncionarios extends JFrame{
     }
     public RelatorioDeFuncionarios() {
         configurar();
+        botaoRelatorio.addActionListener(e -> {
+            new ListandoFuncionarios().setVisible(true);
+        });
 
     }
 }

@@ -4,6 +4,7 @@ import dao.FuncionarioDao;
 import entidades.Funcionario;
 import telas.cadastro.CadastroFuncionario;
 import telas.login.TelaDeLogin;
+import telas.relatorios.RelatorioDeFuncionarios;
 
 import javax.swing.*;
 import java.text.SimpleDateFormat;
@@ -38,6 +39,16 @@ public class FuncionarioController {
                 JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
                 new TelaDeLogin().setVisible(true);
             }
+        });
+
+    }
+    public void ListarFuncionario(RelatorioDeFuncionarios relatorioDeFuncionarios){
+
+        relatorioDeFuncionarios.getBotaoRelatorio().addActionListener(e->{
+            String nome = relatorioDeFuncionarios.getNome().getText();
+            String cpf = relatorioDeFuncionarios.getCampoCPF().getText();
+            String rg = relatorioDeFuncionarios.getCampoRG().getText();
+//            Date dataNascimento = relatorioDeFuncionarios.getCampoDtNascimento().getText();
         });
     }
 }

@@ -7,6 +7,33 @@ import javax.persistence.*;
 public class NotaFiscal {
     private String cnpj;
     private String chave;
+    private String tipo;
+    private String serie;
+    private String numero;
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getSerie() {
+        return serie;
+    }
+
+    public void setSerie(String serie) {
+        this.serie = serie;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 
     public String getChave() {
         return chave;
@@ -19,24 +46,26 @@ public class NotaFiscal {
     public NotaFiscal() {
     }
 
-    public NotaFiscal(String cnpj, Integer idNotaFiscal, String nomeEmpresa, Endereco endereco, Entrada entrada, Saida saida) {
-        this.cnpj = cnpj;
-        this.idNotaFiscal = idNotaFiscal;
-        this.nomeEmpresa = nomeEmpresa;
-        this.endereco = endereco;
-        this.entrada = entrada;
-        this.saida = saida;
+    public NotaFiscal(String chave, String tipo , String serie, String numero) {
+        this.chave = chave;
+        this.serie = serie;
+        this.tipo = tipo;
+        this.numero = numero;
     }
 
+
+
     @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
     @Column (name = "id_notafiscal")
-    private Integer idNotaFiscal;
+    private String idNotaFiscal;
     @Column (name = "nmempresa")
     private String nomeEmpresa;
     @ManyToOne
     @JoinColumn (name = "id_endereco")
     private Endereco endereco;
-    @OneToOne
+    @ManyToOne
+    @JoinColumn (name ="id_entrada")
     private Entrada entrada;
     @OneToOne
     @JoinColumn (name = "id_saida")
@@ -50,11 +79,11 @@ public class NotaFiscal {
         this.cnpj = cnpj;
     }
 
-    public Integer getIdNotaFiscal() {
+    public String getIdNotaFiscal() {
         return idNotaFiscal;
     }
 
-    public void setIdNotaFiscal(Integer idNotaFiscal) {
+    public void setIdNotaFiscal(String idNotaFiscal) {
         this.idNotaFiscal = idNotaFiscal;
     }
 

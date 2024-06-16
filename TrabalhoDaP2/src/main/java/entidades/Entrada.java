@@ -1,7 +1,9 @@
 package entidades;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "entrada")
@@ -19,11 +21,10 @@ public class Entrada {
     @ManyToOne
     @JoinColumn (name = "id_login")
     private Login login;
-    @OneToOne
+    @OneToMany(mappedBy = "entrada", cascade = CascadeType.ALL)
     @JoinColumn(name = "id_notafiscal")
-    private NotaFiscal notaFiscal;
-    public Entrada() {
-    }
+    private List<NotaFiscal> notaFiscal;
+
 
     public Entrada(Date dataEntrada, Integer sessao, CodigoDeBarras codigoDeBarras, Estoque estoque, Login login, NotaFiscal notaFiscal, Registro registro, Integer id) {
         this.dataEntrada = dataEntrada;
@@ -31,15 +32,53 @@ public class Entrada {
         this.codigoDeBarras = codigoDeBarras;
         this.estoque = estoque;
         this.login = login;
-        this.notaFiscal = notaFiscal;
         this.registro = registro;
         this.id = id;
     }
+
+    public Entrada(CodigoDeBarras codigoDeBarras) {
+        this.codigoDeBarras = codigoDeBarras;
+    }
+
+    public Entrada(NotaFiscal notaFiscal) {
+    }
+
+    public Entrada() {
+        this.notaFiscal = new ArrayList<>();
+    }
+
+    public Entrada(Date dataEntrada ) {
+        this.dataEntrada = dataEntrada;
+
+
+        this.notaFiscal = new ArrayList<>();
+    }
+
+    public void adicionarNotaFiscal(NotaFiscal notaFiscal) {
+        this.notaFiscal.add(notaFiscal);
+        notaFiscal.setEntrada(this);
+    }
+
+    public List<NotaFiscal> getNotaFiscal() {
+        return notaFiscal;
+    }
+
+    public void setNotaFiscal(List<NotaFiscal> notaFiscal) {
+        this.notaFiscal = notaFiscal;
+    }
+
+    public Entrada(List<NotaFiscal> notaFiscal) {
+        this.notaFiscal = notaFiscal;
+    }
+
+
+
 
     @ManyToOne
     @JoinColumn (name = "id_registro")
     private Registro registro;
     @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name = "id_entrada")
     private Integer id;
 
@@ -83,13 +122,7 @@ public class Entrada {
         this.login = login;
     }
 
-    public NotaFiscal getNotaFiscal() {
-        return notaFiscal;
-    }
 
-    public void setNotaFiscal(NotaFiscal notaFiscal) {
-        this.notaFiscal = notaFiscal;
-    }
 
     public Registro getRegistro() {
         return registro;

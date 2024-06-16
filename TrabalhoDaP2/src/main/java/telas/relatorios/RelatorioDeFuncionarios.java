@@ -14,7 +14,7 @@ public class RelatorioDeFuncionarios extends JFrame{
     private JTextField campoCPF;
     private JLabel rg;
     private JTextField campoRG;
-    private JTextField campoDtNascimento;
+    private JDateChooser campoDtNascimento;
     private JComboBox comboBox1;
     private JTextField campoEmail;
     private JLabel email;
@@ -25,8 +25,23 @@ public class RelatorioDeFuncionarios extends JFrame{
     private JLabel funcao;
     private JTextField textField1;
     private JButton botaoRelatorio;
+
+    public void setdTadmissao(JLabel dTadmissao) {
+        this.dTadmissao = dTadmissao;
+    }
+
+    public JDateChooser getCampoDtAdmissao() {
+        return campoDtAdmissao;
+    }
+
+    public void setCampoDtAdmissao(JDateChooser campoDtAdmissao) {
+        this.campoDtAdmissao = campoDtAdmissao;
+    }
+
     public void configurar() {
         setTitle("Relatório ");
+        campoDtAdmissao = new JDateChooser();
+        campoDtAdmissao.setDateFormatString("dd/MM/yyyy");
         setContentPane(painel);
         setSize(800, 700);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -97,11 +112,11 @@ public class RelatorioDeFuncionarios extends JFrame{
         this.campoRG = campoRG;
     }
 
-    public JTextField getCampoDtNascimento() {
+    public JDateChooser getCampoDtNascimento() {
         return campoDtNascimento;
     }
 
-    public void setCampoDtNascimento(JTextField campoDtNascimento) {
+    public void setCampoDtNascimento(JDateChooser campoDtNascimento) {
         this.campoDtNascimento = campoDtNascimento;
     }
 
@@ -133,17 +148,9 @@ public class RelatorioDeFuncionarios extends JFrame{
         return dTadmissao;
     }
 
-    public void setdTadmissao(JLabel dTadmissao) {
-        this.dTadmissao = dTadmissao;
-    }
 
-    public JTextField getCampoDtAdmissao() {
-        return campoDtAdmissao;
-    }
 
-    public void setCampoDtAdmissao(JTextField campoDtAdmissao) {
-        this.campoDtAdmissao = campoDtAdmissao;
-    }
+
 
     public JTextField getCampoCargo() {
         return campoCargo;
@@ -188,7 +195,7 @@ public class RelatorioDeFuncionarios extends JFrame{
     public RelatorioDeFuncionarios() {
         configurar();
         botaoRelatorio.addActionListener(e -> {
-            new ListandoFuncionarios().setVisible(true);
+            new ListandoFuncionarios(getCampoNome().getText(),getCampoCPF().getText(),getCampoRG().getText(),getCampoDtAdmissao().getDate(),getComboBox1().getSelectedItem().toString(),getCampoEmail().getText(),getCampoDtNascimento().getDate(),getCampoCargo().getText(),getTextField1().getText()).setVisible(true);
         });
 
     }

@@ -70,7 +70,7 @@
           <text value="Data de Nascimento"/>
         </properties>
       </component>
-      <component id="18272" class="javax.swing.JTextField" binding="campoDtNascimento">
+      <component id="18272" class="com.toedter.calendar.JDateChooser" binding="campoDtNascimento">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -135,7 +135,7 @@
           <text value="Data de Admissão"/>
         </properties>
       </component>
-      <component id="c97e" class="javax.swing.JTextField" binding="campoDtAdmissao">
+      <component id="c97e" class="com.toedter.calendar.JDateChooser" binding="campoDtAdmissao">
         <constraints>
           <grid row="7" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>

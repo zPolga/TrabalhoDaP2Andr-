@@ -22,9 +22,18 @@ public class CodigoDeBarrasDao {
         this.em = em;
     }
     public void Cadastrar(CodigoDeBarras c) {
-        etx.begin();
-        this.em.persist(c);
-        etx.commit();
+        try {
+            etx.begin();
+            em.persist(c);
+            etx.commit();
+        } catch (Exception e) {
+            if (etx != null && etx.isActive()) {
+                etx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
 
     }
     public void Remover(CodigoDeBarras c){

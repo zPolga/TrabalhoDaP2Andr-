@@ -5,8 +5,8 @@ import javax.persistence.*;
 @Entity
 public class Estoque {
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
     @Column(name = "id_estoque")
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column(name = "est_atual")

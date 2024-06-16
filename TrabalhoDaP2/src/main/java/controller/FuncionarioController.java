@@ -9,6 +9,7 @@ import telas.relatorios.RelatorioDeFuncionarios;
 import javax.swing.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class FuncionarioController {
     public void acoes(CadastroFuncionario funcionario) {
@@ -42,13 +43,13 @@ public class FuncionarioController {
         });
 
     }
-    public void ListarFuncionario(RelatorioDeFuncionarios relatorioDeFuncionarios){
 
-        relatorioDeFuncionarios.getBotaoRelatorio().addActionListener(e->{
-            String nome = relatorioDeFuncionarios.getNome().getText();
-            String cpf = relatorioDeFuncionarios.getCampoCPF().getText();
-            String rg = relatorioDeFuncionarios.getCampoRG().getText();
-//            Date dataNascimento = relatorioDeFuncionarios.getCampoDtNascimento().getText();
-        });
+    public List<Funcionario> listarFuncionarios(String nome, String cpf, String rg, Date dataAdm, String sexo, String email, Date dataNasc, String cargo, String funcao) {
+        FuncionarioDao funcionarioDao = new FuncionarioDao();
+        return funcionarioDao.listarFuncionario(nome, cpf, rg, dataAdm, sexo, email, dataNasc, cargo, funcao);
     }
-}
+
+
+
+    }
+

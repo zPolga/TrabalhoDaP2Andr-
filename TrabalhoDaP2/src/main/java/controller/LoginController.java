@@ -46,7 +46,7 @@ public class LoginController {
                 loginDao.Cadastrar(loginNovo);
                 JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
 
-                new TelaDeLogin().setVisible(true);
+                new Inicio().setVisible(true);
                 login.dispose();
             }
         });

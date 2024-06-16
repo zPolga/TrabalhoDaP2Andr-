@@ -3,15 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.49">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <Grants>1||-9223372036854775808|c|G
-1||10|c|G
-1||10|C|G
-1||10|T|G
-4||-9223372036854775808|c|G
-4||10|c|G
-4||10|C|G
-4||10|T|G</Grants>
-      <IntrospectionStateNumber>1433</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1641</IntrospectionStateNumber>
       <ServerVersion>15.3</ServerVersion>
       <StartupTime>1718468853</StartupTime>
       <TimeZones>true ACDT
@@ -809,7 +801,7 @@ false Zulu
 13449||10|C|G
 13449||-9223372036854775808|U|G
 13449||10|U|G</Grants>
-      <IntrospectionStateNumber>1433</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1641</IntrospectionStateNumber>
       <ObjectId>16915</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -818,12 +810,12 @@ false Zulu
       <ObjectId>5</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
-    <database id="4" parent="1" name="teste">
-      <ObjectId>16914</ObjectId>
+    <database id="4" parent="1" name="vendas">
+      <ObjectId>16400</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
-    <database id="5" parent="1" name="vendas">
-      <ObjectId>16400</ObjectId>
+    <database id="5" parent="1" name="teste">
+      <ObjectId>16914</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
     <role id="6" parent="1" name="pg_checkpoint">
@@ -4235,9 +4227,9 @@ false Zulu
     <schema id="264" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1433</IntrospectionStateNumber>
-      <IntrospectionTimestamp>2024-06-15.13:35:47.533</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2024-06-15.17:35:47</LocalIntrospectionTimestamp>
+      <IntrospectionStateNumber>1641</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2024-06-15.23:05:24.589</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2024-06-16.03:05:24</LocalIntrospectionTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>518</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4268,139 +4260,153 @@ false Zulu
       <StateNumber>1328</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <table id="268" parent="264" name="cidade">
+    <sequence id="268" parent="264" name="seq_gen_sequence">
+      <DasType>bigint|0s</DasType>
+      <ObjectId>17193</ObjectId>
+      <SequenceIdentity>1(500)+50</SequenceIdentity>
+      <StartValue>50</StartValue>
+      <StateNumber>1544</StateNumber>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <table id="269" parent="264" name="cidade">
       <ObjectId>16941</ObjectId>
       <StateNumber>1307</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="269" parent="264" name="codbarras">
-      <ObjectId>16986</ObjectId>
-      <StateNumber>1314</StateNumber>
+    <table id="270" parent="264" name="cidade_estoque">
+      <ObjectId>17212</ObjectId>
+      <StateNumber>1569</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="270" parent="264" name="codigodebarras">
+    <table id="271" parent="264" name="codbarras">
+      <ObjectId>16986</ObjectId>
+      <StateNumber>1470</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="272" parent="264" name="codigodebarras">
       <ObjectId>17137</ObjectId>
       <StateNumber>1327</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="271" parent="264" name="codigodebarrassaida">
+    <table id="273" parent="264" name="codigodebarrassaida">
       <ObjectId>17144</ObjectId>
       <StateNumber>1328</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="272" parent="264" name="endereco">
+    <table id="274" parent="264" name="endereco">
       <ObjectId>16951</ObjectId>
       <StateNumber>1308</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="273" parent="264" name="entrada">
+    <table id="275" parent="264" name="entrada">
       <ObjectId>17066</ObjectId>
       <StateNumber>1321</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="274" parent="264" name="estado">
+    <table id="276" parent="264" name="estado">
       <ObjectId>16936</ObjectId>
       <StateNumber>1307</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="275" parent="264" name="estoque">
+    <table id="277" parent="264" name="estoque">
       <ObjectId>16966</ObjectId>
       <StateNumber>1350</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="276" parent="264" name="funcionario">
+    <table id="278" parent="264" name="funcionario">
       <ObjectId>16921</ObjectId>
       <StateNumber>1414</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="277" parent="264" name="login">
+    <table id="279" parent="264" name="login">
       <ObjectId>16926</ObjectId>
       <StateNumber>1305</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="278" parent="264" name="notafiscal">
+    <table id="280" parent="264" name="notafiscal">
       <ObjectId>17051</ObjectId>
-      <StateNumber>1413</StateNumber>
+      <StateNumber>1636</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="279" parent="264" name="produto">
+    <table id="281" parent="264" name="produto">
       <ObjectId>17106</ObjectId>
       <StateNumber>1325</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="280" parent="264" name="registro">
+    <table id="282" parent="264" name="registro">
       <ObjectId>17001</ObjectId>
       <StateNumber>1315</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="281" parent="264" name="saida">
+    <table id="283" parent="264" name="saida">
       <ObjectId>17011</ObjectId>
       <StateNumber>1316</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="282" parent="264" name="sequence">
+    <table id="284" parent="264" name="sequence">
       <ObjectId>17161</ObjectId>
       <StateNumber>1365</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="283" parent="264" name="tipo">
+    <table id="285" parent="264" name="tipo">
       <ObjectId>16961</ObjectId>
       <StateNumber>1314</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="284" parent="264" name="validade">
+    <table id="286" parent="264" name="validade">
       <ObjectId>17096</ObjectId>
       <StateNumber>1324</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <argument id="285" parent="265">
+    <argument id="287" parent="265">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>trigger|0s</DasType>
     </argument>
-    <column id="286" parent="268" name="id_cidade">
+    <column id="288" parent="269" name="id_cidade">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1307</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="287" parent="268" name="nome">
+    <column id="289" parent="269" name="nome">
       <DasType>varchar(20)|0s</DasType>
       <Position>2</Position>
       <StateNumber>1307</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="288" parent="268" name="id_estado">
+    <column id="290" parent="269" name="id_estado">
       <DasType>integer|0s</DasType>
       <Position>3</Position>
       <StateNumber>1307</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="289" parent="268" name="fk_cidade_estado">
+    <foreign-key id="291" parent="269" name="fk_cidade_estado">
       <ColNames>id_estado</ColNames>
       <ObjectId>16946</ObjectId>
       <StateNumber>1307</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16936</RefTableId>
     </foreign-key>
-    <index id="290" parent="268" name="cidade_pkey">
+    <index id="292" parent="269" name="cidade_pkey">
       <ColNames>id_cidade</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16944</ObjectId>
@@ -4409,66 +4415,117 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="291" parent="268" name="cidade_pkey">
+    <key id="293" parent="269" name="cidade_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16945</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1307</StateNumber>
       <UnderlyingIndexId>16944</UnderlyingIndexId>
     </key>
-    <column id="292" parent="269" name="id_codbarras">
-      <DasType>varchar(50)|0s</DasType>
+    <column id="294" parent="270" name="cidade_id_cidade">
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1314</StateNumber>
+      <StateNumber>1568</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="295" parent="270" name="estoques_id_estoque">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>1568</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="296" parent="270" name="fk_cidade_estoque_cidade_id_cidade">
+      <ColNames>cidade_id_cidade</ColNames>
+      <ObjectId>17217</ObjectId>
+      <StateNumber>1569</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>16941</RefTableId>
+    </foreign-key>
+    <foreign-key id="297" parent="270" name="fk_cidade_estoque_estoques_id_estoque">
+      <ColNames>estoques_id_estoque</ColNames>
+      <ObjectId>17222</ObjectId>
+      <StateNumber>1570</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>16966</RefTableId>
+    </foreign-key>
+    <index id="298" parent="270" name="cidade_estoque_pkey">
+      <ColNames>cidade_id_cidade
+estoques_id_estoque</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>17215</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1568</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="299" parent="270" name="cidade_estoque_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>17216</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1568</StateNumber>
+      <UnderlyingIndexId>17215</UnderlyingIndexId>
+    </key>
+    <column id="300" parent="271" name="id_codbarras">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>1470</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="293" parent="269" name="id_tipo">
+    <column id="301" parent="271" name="id_tipo">
       <DasType>integer|0s</DasType>
       <Position>2</Position>
       <StateNumber>1314</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="294" parent="269" name="id_estoque">
+    <column id="302" parent="271" name="id_estoque">
       <DasType>integer|0s</DasType>
       <Position>3</Position>
       <StateNumber>1314</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="295" parent="269" name="fk_codbarras_tipo">
+    <column id="303" parent="271" name="id_codbarras_new">
+      <DasType>integer|0s</DasType>
+      <Position>4</Position>
+      <StateNumber>1459</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="304" parent="271" name="fk_codbarras_tipo">
       <ColNames>id_tipo</ColNames>
       <ObjectId>16991</ObjectId>
       <StateNumber>1314</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16961</RefTableId>
     </foreign-key>
-    <foreign-key id="296" parent="269" name="fk_codbarras_estoque">
+    <foreign-key id="305" parent="271" name="fk_codbarras_estoque">
       <ColNames>id_estoque</ColNames>
       <ObjectId>16996</ObjectId>
       <StateNumber>1314</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16966</RefTableId>
     </foreign-key>
-    <index id="297" parent="269" name="codbarras_pkey">
+    <index id="306" parent="271" name="codbarras_pkey">
       <ColNames>id_codbarras</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16989</ObjectId>
+      <ObjectId>17182</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1314</StateNumber>
+      <StateNumber>1470</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="298" parent="269" name="codbarras_pkey">
+    <key id="307" parent="271" name="codbarras_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16990</ObjectId>
+      <ObjectId>17183</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1314</StateNumber>
-      <UnderlyingIndexId>16989</UnderlyingIndexId>
+      <StateNumber>1470</StateNumber>
+      <UnderlyingIndexId>17182</UnderlyingIndexId>
     </key>
-    <column id="299" parent="270" name="id">
+    <column id="308" parent="272" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;codigodebarras_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4477,19 +4534,19 @@ false Zulu
       <SequenceId>17136</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="300" parent="270" name="estoque_id">
+    <column id="309" parent="272" name="estoque_id">
       <DasType>integer|0s</DasType>
       <Position>2</Position>
       <StateNumber>1327</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="301" parent="270" name="tipo_id">
+    <column id="310" parent="272" name="tipo_id">
       <DasType>integer|0s</DasType>
       <Position>3</Position>
       <StateNumber>1327</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="302" parent="270" name="codigodebarras_pkey">
+    <index id="311" parent="272" name="codigodebarras_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17141</ObjectId>
@@ -4498,14 +4555,14 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="303" parent="270" name="codigodebarras_pkey">
+    <key id="312" parent="272" name="codigodebarras_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17142</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1327</StateNumber>
       <UnderlyingIndexId>17141</UnderlyingIndexId>
     </key>
-    <column id="304" parent="271" name="id">
+    <column id="313" parent="273" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;codigodebarrassaida_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4514,7 +4571,7 @@ false Zulu
       <SequenceId>17143</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <index id="305" parent="271" name="codigodebarrassaida_pkey">
+    <index id="314" parent="273" name="codigodebarrassaida_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17148</ObjectId>
@@ -4523,46 +4580,46 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="306" parent="271" name="codigodebarrassaida_pkey">
+    <key id="315" parent="273" name="codigodebarrassaida_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17149</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1328</StateNumber>
       <UnderlyingIndexId>17148</UnderlyingIndexId>
     </key>
-    <column id="307" parent="272" name="id_endereco">
+    <column id="316" parent="274" name="id_endereco">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1308</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="308" parent="272" name="logradouro">
+    <column id="317" parent="274" name="logradouro">
       <DasType>varchar(50)|0s</DasType>
       <Position>2</Position>
       <StateNumber>1308</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="309" parent="272" name="cep">
+    <column id="318" parent="274" name="cep">
       <DasType>varchar(8)|0s</DasType>
       <Position>3</Position>
       <StateNumber>1308</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="310" parent="272" name="id_cidade">
+    <column id="319" parent="274" name="id_cidade">
       <DasType>integer|0s</DasType>
       <Position>4</Position>
       <StateNumber>1308</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="311" parent="272" name="fk_endereco_cidade">
+    <foreign-key id="320" parent="274" name="fk_endereco_cidade">
       <ColNames>id_cidade</ColNames>
       <ObjectId>16956</ObjectId>
       <StateNumber>1308</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16941</RefTableId>
     </foreign-key>
-    <index id="312" parent="272" name="endereco_pkey">
+    <index id="321" parent="274" name="endereco_pkey">
       <ColNames>id_endereco</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16954</ObjectId>
@@ -4571,98 +4628,91 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="313" parent="272" name="endereco_pkey">
+    <key id="322" parent="274" name="endereco_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16955</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1308</StateNumber>
       <UnderlyingIndexId>16954</UnderlyingIndexId>
     </key>
-    <column id="314" parent="273" name="id_entrada">
+    <column id="323" parent="275" name="id_entrada">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1320</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="315" parent="273" name="dtentrada">
+    <column id="324" parent="275" name="dtentrada">
       <DasType>date|0s</DasType>
       <Position>2</Position>
       <StateNumber>1320</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="316" parent="273" name="secao">
+    <column id="325" parent="275" name="secao">
       <DasType>varchar(20)|0s</DasType>
       <Position>3</Position>
       <StateNumber>1320</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="317" parent="273" name="id_codbarras">
+    <column id="326" parent="275" name="id_codbarras">
       <DasType>varchar(50)|0s</DasType>
       <Position>4</Position>
       <StateNumber>1320</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="318" parent="273" name="id_estoque">
+    <column id="327" parent="275" name="id_estoque">
       <DasType>integer|0s</DasType>
       <Position>5</Position>
       <StateNumber>1320</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="319" parent="273" name="id_login">
+    <column id="328" parent="275" name="id_login">
       <DasType>integer|0s</DasType>
       <Position>6</Position>
       <StateNumber>1320</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="320" parent="273" name="id_registro">
+    <column id="329" parent="275" name="id_registro">
       <DasType>integer|0s</DasType>
       <Position>7</Position>
       <StateNumber>1320</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="321" parent="273" name="id_notafiscal">
+    <column id="330" parent="275" name="id_notafiscal">
       <DasType>varchar(10)|0s</DasType>
       <Position>8</Position>
       <StateNumber>1321</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="322" parent="273" name="fk_entrada_codbarras">
-      <ColNames>id_codbarras</ColNames>
-      <ObjectId>17071</ObjectId>
-      <StateNumber>1320</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16986</RefTableId>
-    </foreign-key>
-    <foreign-key id="323" parent="273" name="fk_entrada_estoque">
+    <foreign-key id="331" parent="275" name="fk_entrada_estoque">
       <ColNames>id_estoque</ColNames>
       <ObjectId>17076</ObjectId>
       <StateNumber>1320</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16966</RefTableId>
     </foreign-key>
-    <foreign-key id="324" parent="273" name="fk_entrada_login">
+    <foreign-key id="332" parent="275" name="fk_entrada_login">
       <ColNames>id_login</ColNames>
       <ObjectId>17081</ObjectId>
       <StateNumber>1320</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16926</RefTableId>
     </foreign-key>
-    <foreign-key id="325" parent="273" name="fk_entrada_registro">
+    <foreign-key id="333" parent="275" name="fk_entrada_registro">
       <ColNames>id_registro</ColNames>
       <ObjectId>17091</ObjectId>
       <StateNumber>1323</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>17001</RefTableId>
     </foreign-key>
-    <foreign-key id="326" parent="273" name="fk_entrada_notafiscal">
+    <foreign-key id="334" parent="275" name="fk_entrada_notafiscal">
       <ColNames>id_notafiscal</ColNames>
       <ObjectId>17086</ObjectId>
       <StateNumber>1322</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>17051</RefTableId>
     </foreign-key>
-    <index id="327" parent="273" name="entrada_pkey">
+    <index id="335" parent="275" name="entrada_pkey">
       <ColNames>id_entrada</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17069</ObjectId>
@@ -4671,33 +4721,33 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="328" parent="273" name="entrada_pkey">
+    <key id="336" parent="275" name="entrada_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17070</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1320</StateNumber>
       <UnderlyingIndexId>17069</UnderlyingIndexId>
     </key>
-    <column id="329" parent="274" name="id_estado">
+    <column id="337" parent="276" name="id_estado">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1306</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="330" parent="274" name="nmestado">
+    <column id="338" parent="276" name="nmestado">
       <DasType>varchar(20)|0s</DasType>
       <Position>2</Position>
       <StateNumber>1306</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="331" parent="274" name="siglaestado">
+    <column id="339" parent="276" name="siglaestado">
       <DasType>varchar(3)|0s</DasType>
       <Position>3</Position>
       <StateNumber>1306</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="332" parent="274" name="estado_pkey">
+    <index id="340" parent="276" name="estado_pkey">
       <ColNames>id_estado</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16939</ObjectId>
@@ -4706,58 +4756,58 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="333" parent="274" name="estado_pkey">
+    <key id="341" parent="276" name="estado_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16940</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1306</StateNumber>
       <UnderlyingIndexId>16939</UnderlyingIndexId>
     </key>
-    <column id="334" parent="275" name="id_estoque">
+    <column id="342" parent="277" name="id_estoque">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1310</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="335" parent="275" name="est_atual">
+    <column id="343" parent="277" name="est_atual">
       <DasType>integer|0s</DasType>
       <Position>2</Position>
       <StateNumber>1310</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="336" parent="275" name="est_anterior">
+    <column id="344" parent="277" name="est_anterior">
       <DasType>integer|0s</DasType>
       <Position>3</Position>
       <StateNumber>1310</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="337" parent="275" name="qtdesaida">
+    <column id="345" parent="277" name="qtdesaida">
       <DasType>integer|0s</DasType>
       <Position>4</Position>
       <StateNumber>1310</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="338" parent="275" name="qtdeentrada">
+    <column id="346" parent="277" name="qtdeentrada">
       <DasType>integer|0s</DasType>
       <Position>5</Position>
       <StateNumber>1310</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="339" parent="275" name="id_cidade">
+    <column id="347" parent="277" name="id_cidade">
       <DasType>integer|0s</DasType>
       <Position>6</Position>
       <StateNumber>1337</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="340" parent="275" name="fk_estoque_cidade">
+    <foreign-key id="348" parent="277" name="fk_estoque_cidade">
       <ColNames>id_cidade</ColNames>
       <ObjectId>17150</ObjectId>
       <StateNumber>1338</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16941</RefTableId>
     </foreign-key>
-    <index id="341" parent="275" name="estoque_pkey">
+    <index id="349" parent="277" name="estoque_pkey">
       <ColNames>id_estoque</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16969</ObjectId>
@@ -4766,120 +4816,113 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="342" parent="275" name="estoque_pkey">
+    <key id="350" parent="277" name="estoque_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16970</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1310</StateNumber>
       <UnderlyingIndexId>16969</UnderlyingIndexId>
     </key>
-    <trigger id="343" parent="275" name="trg_adicionarfuncionario">
-      <Events>I</Events>
-      <ObjectId>17167</ObjectId>
-      <StateNumber>1412</StateNumber>
-      <Turn>after-row</Turn>
-      <CallRoutineId>17166</CallRoutineId>
-    </trigger>
-    <column id="344" parent="276" name="id_funcionario">
+    <column id="351" parent="278" name="id_funcionario">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1302</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="345" parent="276" name="nome_completo">
+    <column id="352" parent="278" name="nome_completo">
       <DasType>varchar(50)|0s</DasType>
       <Position>2</Position>
       <StateNumber>1302</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="346" parent="276" name="cpf">
+    <column id="353" parent="278" name="cpf">
       <DasType>varchar(11)|0s</DasType>
       <Position>3</Position>
       <StateNumber>1302</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="347" parent="276" name="dtnascimento">
+    <column id="354" parent="278" name="dtnascimento">
       <DasType>date|0s</DasType>
       <Position>4</Position>
       <StateNumber>1302</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="348" parent="276" name="sexo">
+    <column id="355" parent="278" name="sexo">
       <DasType>char|0s</DasType>
       <Position>5</Position>
       <StateNumber>1302</StateNumber>
       <TypeId>1042</TypeId>
     </column>
-    <column id="349" parent="276" name="telefone">
+    <column id="356" parent="278" name="telefone">
       <DasType>varchar(11)|0s</DasType>
       <Position>6</Position>
       <StateNumber>1302</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="350" parent="276" name="email">
+    <column id="357" parent="278" name="email">
       <DasType>varchar(30)|0s</DasType>
       <Position>7</Position>
       <StateNumber>1302</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="351" parent="276" name="dtadmissão">
+    <column id="358" parent="278" name="dtadmissão">
       <DasType>date|0s</DasType>
       <Position>8</Position>
       <StateNumber>1302</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="352" parent="276" name="cargo">
+    <column id="359" parent="278" name="cargo">
       <DasType>varchar(20)|0s</DasType>
       <Position>9</Position>
       <StateNumber>1302</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="353" parent="276" name="funcao">
+    <column id="360" parent="278" name="funcao">
       <DasType>varchar(30)|0s</DasType>
       <Position>10</Position>
       <StateNumber>1302</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="354" parent="276" name="salario">
+    <column id="361" parent="278" name="salario">
       <DasType>numeric(10,2 digit)|0s</DasType>
       <Position>11</Position>
       <StateNumber>1302</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="355" parent="276" name="id_endereco">
+    <column id="362" parent="278" name="id_endereco">
       <DasType>integer|0s</DasType>
       <Position>12</Position>
       <StateNumber>1302</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="356" parent="276" name="id_login">
+    <column id="363" parent="278" name="id_login">
       <DasType>integer|0s</DasType>
       <Position>13</Position>
       <StateNumber>1302</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="357" parent="276" name="rg">
+    <column id="364" parent="278" name="rg">
       <DasType>varchar(255)|0s</DasType>
       <Position>14</Position>
       <StateNumber>1414</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="358" parent="276" name="fk_funcionario_endereco">
+    <foreign-key id="365" parent="278" name="fk_funcionario_endereco">
       <ColNames>id_endereco</ColNames>
       <ObjectId>16971</ObjectId>
       <StateNumber>1311</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16951</RefTableId>
     </foreign-key>
-    <foreign-key id="359" parent="276" name="fk_funcionario_login">
+    <foreign-key id="366" parent="278" name="fk_funcionario_login">
       <ColNames>id_login</ColNames>
       <ObjectId>16976</ObjectId>
       <StateNumber>1312</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16926</RefTableId>
     </foreign-key>
-    <index id="360" parent="276" name="funcionario_pkey">
+    <index id="367" parent="278" name="funcionario_pkey">
       <ColNames>id_funcionario</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16924</ObjectId>
@@ -4888,59 +4931,59 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="361" parent="276" name="funcionario_pkey">
+    <key id="368" parent="278" name="funcionario_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16925</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1302</StateNumber>
       <UnderlyingIndexId>16924</UnderlyingIndexId>
     </key>
-    <column id="362" parent="277" name="id_login">
+    <column id="369" parent="279" name="id_login">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1303</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="363" parent="277" name="nome">
+    <column id="370" parent="279" name="nome">
       <DasType>varchar(50)|0s</DasType>
       <Position>2</Position>
       <StateNumber>1431</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="364" parent="277" name="senha">
+    <column id="371" parent="279" name="senha">
       <DasType>varchar(100)|0s</DasType>
       <Position>3</Position>
       <StateNumber>1431</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="365" parent="277" name="id_estoque">
+    <column id="372" parent="279" name="id_estoque">
       <DasType>integer|0s</DasType>
       <Position>4</Position>
       <StateNumber>1303</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="366" parent="277" name="id_funcionario">
+    <column id="373" parent="279" name="id_funcionario">
       <DasType>integer|0s</DasType>
       <Position>5</Position>
       <StateNumber>1304</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="367" parent="277" name="fk_login_estoque">
+    <foreign-key id="374" parent="279" name="fk_login_estoque">
       <ColNames>id_estoque</ColNames>
       <ObjectId>16981</ObjectId>
       <StateNumber>1313</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16966</RefTableId>
     </foreign-key>
-    <foreign-key id="368" parent="277" name="fk_login_funcionario">
+    <foreign-key id="375" parent="279" name="fk_login_funcionario">
       <ColNames>id_funcionario</ColNames>
       <ObjectId>16931</ObjectId>
       <StateNumber>1305</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16921</RefTableId>
     </foreign-key>
-    <index id="369" parent="277" name="login_pkey">
+    <index id="376" parent="279" name="login_pkey">
       <ColNames>id_login</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16929</ObjectId>
@@ -4949,71 +4992,89 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="370" parent="277" name="login_pkey">
+    <key id="377" parent="279" name="login_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16930</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1303</StateNumber>
       <UnderlyingIndexId>16929</UnderlyingIndexId>
     </key>
-    <column id="371" parent="278" name="id_notafiscal">
+    <column id="378" parent="280" name="id_notafiscal">
       <DasType>varchar(10)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1319</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="372" parent="278" name="cnpj">
+    <column id="379" parent="280" name="cnpj">
       <DasType>varchar(14)|0s</DasType>
       <Position>2</Position>
       <StateNumber>1319</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="373" parent="278" name="nmempresa">
+    <column id="380" parent="280" name="nmempresa">
       <DasType>varchar(20)|0s</DasType>
       <Position>3</Position>
       <StateNumber>1319</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="374" parent="278" name="id_endereco">
+    <column id="381" parent="280" name="id_endereco">
       <DasType>integer|0s</DasType>
       <Position>4</Position>
       <StateNumber>1319</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="375" parent="278" name="id_saida">
+    <column id="382" parent="280" name="id_saida">
       <DasType>integer|0s</DasType>
       <Position>5</Position>
       <StateNumber>1319</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="376" parent="278" name="id_entrada">
+    <column id="383" parent="280" name="id_entrada">
       <DasType>integer|0s</DasType>
       <Position>6</Position>
       <StateNumber>1319</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="377" parent="278" name="chave">
+    <column id="384" parent="280" name="chave">
       <DasType>varchar(255)|0s</DasType>
       <Position>7</Position>
       <StateNumber>1413</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="378" parent="278" name="fk_notafiscal_endereco">
+    <column id="385" parent="280" name="tipo">
+      <DasType>varchar(55)|0s</DasType>
+      <Position>8</Position>
+      <StateNumber>1434</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="386" parent="280" name="serie">
+      <DasType>varchar(55)|0s</DasType>
+      <Position>10</Position>
+      <StateNumber>1510</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="387" parent="280" name="numero">
+      <DasType>varchar(55)|0s</DasType>
+      <Position>11</Position>
+      <StateNumber>1636</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <foreign-key id="388" parent="280" name="fk_notafiscal_endereco">
       <ColNames>id_endereco</ColNames>
       <ObjectId>17056</ObjectId>
       <StateNumber>1319</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16951</RefTableId>
     </foreign-key>
-    <foreign-key id="379" parent="278" name="fk_notafiscal_saida">
+    <foreign-key id="389" parent="280" name="fk_notafiscal_saida">
       <ColNames>id_saida</ColNames>
       <ObjectId>17061</ObjectId>
       <StateNumber>1319</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>17011</RefTableId>
     </foreign-key>
-    <index id="380" parent="278" name="notafiscal_pkey">
+    <index id="390" parent="280" name="notafiscal_pkey">
       <ColNames>id_notafiscal</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17054</ObjectId>
@@ -5025,134 +5086,134 @@ false Zulu
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="381" parent="278" name="notafiscal_pkey">
+    <key id="391" parent="280" name="notafiscal_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17055</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1319</StateNumber>
       <UnderlyingIndexId>17054</UnderlyingIndexId>
     </key>
-    <column id="382" parent="279" name="id_produto">
+    <column id="392" parent="281" name="id_produto">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1325</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="383" parent="279" name="marca">
+    <column id="393" parent="281" name="marca">
       <DasType>varchar(20)|0s</DasType>
       <Position>2</Position>
       <StateNumber>1325</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="384" parent="279" name="categoria">
+    <column id="394" parent="281" name="categoria">
       <DasType>varchar(20)|0s</DasType>
       <Position>3</Position>
       <StateNumber>1325</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="385" parent="279" name="qtde_recebida">
+    <column id="395" parent="281" name="qtde_recebida">
       <DasType>integer|0s</DasType>
       <Position>4</Position>
       <StateNumber>1325</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="386" parent="279" name="preco_prod">
+    <column id="396" parent="281" name="preco_prod">
       <DasType>numeric(10,2 digit)|0s</DasType>
       <Position>5</Position>
       <StateNumber>1325</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="387" parent="279" name="preco_venda">
+    <column id="397" parent="281" name="preco_venda">
       <DasType>numeric(10,2 digit)|0s</DasType>
       <Position>6</Position>
       <StateNumber>1325</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="388" parent="279" name="fornecedor">
+    <column id="398" parent="281" name="fornecedor">
       <DasType>varchar(20)|0s</DasType>
       <Position>7</Position>
       <StateNumber>1325</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="389" parent="279" name="dtvalid_embalagem">
+    <column id="399" parent="281" name="dtvalid_embalagem">
       <DasType>date|0s</DasType>
       <Position>8</Position>
       <StateNumber>1325</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="390" parent="279" name="qtde_min">
+    <column id="400" parent="281" name="qtde_min">
       <DasType>integer|0s</DasType>
       <Position>9</Position>
       <StateNumber>1325</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="391" parent="279" name="id_codbarras">
+    <column id="401" parent="281" name="id_codbarras">
       <DasType>varchar(50)|0s</DasType>
       <Position>10</Position>
       <StateNumber>1325</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="392" parent="279" name="id_validade">
+    <column id="402" parent="281" name="id_validade">
       <DasType>integer|0s</DasType>
       <Position>11</Position>
       <StateNumber>1325</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="393" parent="279" name="id_entrada">
+    <column id="403" parent="281" name="id_entrada">
       <DasType>integer|0s</DasType>
       <Position>12</Position>
       <StateNumber>1325</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="394" parent="279" name="id_saida">
+    <column id="404" parent="281" name="id_saida">
       <DasType>integer|0s</DasType>
       <Position>13</Position>
       <StateNumber>1325</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="395" parent="279" name="id_estoque">
+    <column id="405" parent="281" name="id_estoque">
       <DasType>integer|0s</DasType>
       <Position>14</Position>
       <StateNumber>1325</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="396" parent="279" name="fk_produto_codbarras">
+    <foreign-key id="406" parent="281" name="fk_produto_codbarras">
       <ColNames>id_codbarras</ColNames>
-      <ObjectId>17111</ObjectId>
-      <StateNumber>1325</StateNumber>
+      <ObjectId>17188</ObjectId>
+      <StateNumber>1471</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16986</RefTableId>
     </foreign-key>
-    <foreign-key id="397" parent="279" name="fk_produto_validade">
+    <foreign-key id="407" parent="281" name="fk_produto_validade">
       <ColNames>id_validade</ColNames>
       <ObjectId>17116</ObjectId>
       <StateNumber>1325</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>17096</RefTableId>
     </foreign-key>
-    <foreign-key id="398" parent="279" name="fk_produto_entrada">
+    <foreign-key id="408" parent="281" name="fk_produto_entrada">
       <ColNames>id_entrada</ColNames>
       <ObjectId>17121</ObjectId>
       <StateNumber>1325</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>17066</RefTableId>
     </foreign-key>
-    <foreign-key id="399" parent="279" name="fk_produto_saida">
+    <foreign-key id="409" parent="281" name="fk_produto_saida">
       <ColNames>id_saida</ColNames>
       <ObjectId>17126</ObjectId>
       <StateNumber>1325</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>17011</RefTableId>
     </foreign-key>
-    <foreign-key id="400" parent="279" name="fk_produto_estoque">
+    <foreign-key id="410" parent="281" name="fk_produto_estoque">
       <ColNames>id_estoque</ColNames>
       <ObjectId>17131</ObjectId>
       <StateNumber>1325</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16966</RefTableId>
     </foreign-key>
-    <index id="401" parent="279" name="produto_pkey">
+    <index id="411" parent="281" name="produto_pkey">
       <ColNames>id_produto</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17109</ObjectId>
@@ -5161,58 +5222,58 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="402" parent="279" name="produto_pkey">
+    <key id="412" parent="281" name="produto_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17110</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1325</StateNumber>
       <UnderlyingIndexId>17109</UnderlyingIndexId>
     </key>
-    <column id="403" parent="280" name="id_registro">
+    <column id="413" parent="282" name="id_registro">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1315</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="404" parent="280" name="dtacesso_entrada">
+    <column id="414" parent="282" name="dtacesso_entrada">
       <DasType>date|0s</DasType>
       <Position>2</Position>
       <StateNumber>1315</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="405" parent="280" name="dtentrada_produto">
+    <column id="415" parent="282" name="dtentrada_produto">
       <DasType>date|0s</DasType>
       <Position>3</Position>
       <StateNumber>1315</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="406" parent="280" name="dtacesso_saida">
+    <column id="416" parent="282" name="dtacesso_saida">
       <DasType>date|0s</DasType>
       <Position>4</Position>
       <StateNumber>1315</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="407" parent="280" name="dtsaida_produto">
+    <column id="417" parent="282" name="dtsaida_produto">
       <DasType>date|0s</DasType>
       <Position>5</Position>
       <StateNumber>1315</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="408" parent="280" name="id_login">
+    <column id="418" parent="282" name="id_login">
       <DasType>integer|0s</DasType>
       <Position>6</Position>
       <StateNumber>1315</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="409" parent="280" name="fk_registro_login">
+    <foreign-key id="419" parent="282" name="fk_registro_login">
       <ColNames>id_login</ColNames>
       <ObjectId>17006</ObjectId>
       <StateNumber>1315</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16926</RefTableId>
     </foreign-key>
-    <index id="410" parent="280" name="registro_pkey">
+    <index id="420" parent="282" name="registro_pkey">
       <ColNames>id_registro</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17004</ObjectId>
@@ -5221,85 +5282,78 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="411" parent="280" name="registro_pkey">
+    <key id="421" parent="282" name="registro_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17005</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1315</StateNumber>
       <UnderlyingIndexId>17004</UnderlyingIndexId>
     </key>
-    <column id="412" parent="281" name="id_saida">
+    <column id="422" parent="283" name="id_saida">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1316</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="413" parent="281" name="dtsaida">
+    <column id="423" parent="283" name="dtsaida">
       <DasType>date|0s</DasType>
       <Position>2</Position>
       <StateNumber>1316</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="414" parent="281" name="motivo">
+    <column id="424" parent="283" name="motivo">
       <DasType>varchar(30)|0s</DasType>
       <Position>3</Position>
       <StateNumber>1316</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="415" parent="281" name="id_estoque">
+    <column id="425" parent="283" name="id_estoque">
       <DasType>integer|0s</DasType>
       <Position>4</Position>
       <StateNumber>1316</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="416" parent="281" name="id_codbarras">
+    <column id="426" parent="283" name="id_codbarras">
       <DasType>varchar(50)|0s</DasType>
       <Position>5</Position>
       <StateNumber>1316</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="417" parent="281" name="id_registro">
+    <column id="427" parent="283" name="id_registro">
       <DasType>integer|0s</DasType>
       <Position>6</Position>
       <StateNumber>1316</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="418" parent="281" name="id_login">
+    <column id="428" parent="283" name="id_login">
       <DasType>integer|0s</DasType>
       <Position>7</Position>
       <StateNumber>1316</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="419" parent="281" name="fk_saida_estoque">
+    <foreign-key id="429" parent="283" name="fk_saida_estoque">
       <ColNames>id_estoque</ColNames>
       <ObjectId>17016</ObjectId>
       <StateNumber>1316</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16966</RefTableId>
     </foreign-key>
-    <foreign-key id="420" parent="281" name="fk_saida_codbarras">
-      <ColNames>id_codbarras</ColNames>
-      <ObjectId>17021</ObjectId>
-      <StateNumber>1316</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16986</RefTableId>
-    </foreign-key>
-    <foreign-key id="421" parent="281" name="fk_saida_registro">
+    <foreign-key id="430" parent="283" name="fk_saida_registro">
       <ColNames>id_registro</ColNames>
       <ObjectId>17026</ObjectId>
       <StateNumber>1316</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>17001</RefTableId>
     </foreign-key>
-    <foreign-key id="422" parent="281" name="fk_saida_login">
+    <foreign-key id="431" parent="283" name="fk_saida_login">
       <ColNames>id_login</ColNames>
       <ObjectId>17031</ObjectId>
       <StateNumber>1316</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16926</RefTableId>
     </foreign-key>
-    <index id="423" parent="281" name="saida_pkey">
+    <index id="432" parent="283" name="saida_pkey">
       <ColNames>id_saida</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17014</ObjectId>
@@ -5308,27 +5362,27 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="424" parent="281" name="saida_pkey">
+    <key id="433" parent="283" name="saida_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17015</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1316</StateNumber>
       <UnderlyingIndexId>17014</UnderlyingIndexId>
     </key>
-    <column id="425" parent="282" name="seq_name">
+    <column id="434" parent="284" name="seq_name">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1365</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="426" parent="282" name="seq_count">
+    <column id="435" parent="284" name="seq_count">
       <DasType>numeric(38)|0s</DasType>
       <Position>2</Position>
       <StateNumber>1365</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <index id="427" parent="282" name="sequence_pkey">
+    <index id="436" parent="284" name="sequence_pkey">
       <ColNames>seq_name</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17164</ObjectId>
@@ -5340,27 +5394,27 @@ false Zulu
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="428" parent="282" name="sequence_pkey">
+    <key id="437" parent="284" name="sequence_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17165</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1365</StateNumber>
       <UnderlyingIndexId>17164</UnderlyingIndexId>
     </key>
-    <column id="429" parent="283" name="id_tipo">
+    <column id="438" parent="285" name="id_tipo">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1309</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="430" parent="283" name="descricao">
+    <column id="439" parent="285" name="descricao">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
       <StateNumber>1406</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="431" parent="283" name="tipo_pkey">
+    <index id="440" parent="285" name="tipo_pkey">
       <ColNames>id_tipo</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16964</ObjectId>
@@ -5369,40 +5423,40 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="432" parent="283" name="tipo_pkey">
+    <key id="441" parent="285" name="tipo_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16965</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1309</StateNumber>
       <UnderlyingIndexId>16964</UnderlyingIndexId>
     </key>
-    <column id="433" parent="284" name="id_validade">
+    <column id="442" parent="286" name="id_validade">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1324</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="434" parent="284" name="dtfabricacao">
+    <column id="443" parent="286" name="dtfabricacao">
       <DasType>date|0s</DasType>
       <Position>2</Position>
       <StateNumber>1324</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="435" parent="284" name="id_entrada">
+    <column id="444" parent="286" name="id_entrada">
       <DasType>integer|0s</DasType>
       <Position>3</Position>
       <StateNumber>1324</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="436" parent="284" name="fk_validade_entrada">
+    <foreign-key id="445" parent="286" name="fk_validade_entrada">
       <ColNames>id_entrada</ColNames>
       <ObjectId>17101</ObjectId>
       <StateNumber>1324</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>17066</RefTableId>
     </foreign-key>
-    <index id="437" parent="284" name="validade_pkey">
+    <index id="446" parent="286" name="validade_pkey">
       <ColNames>id_validade</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17099</ObjectId>
@@ -5411,7 +5465,7 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="438" parent="284" name="validade_pkey">
+    <key id="447" parent="286" name="validade_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17100</ObjectId>
       <Primary>1</Primary>

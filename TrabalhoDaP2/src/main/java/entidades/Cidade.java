@@ -12,11 +12,11 @@ public class Cidade {
     @Column (name = "id_cidade")
     private Integer id;
     private String nome;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn (name= "id_estado")
     private Estado estado;
 
-    @OneToMany(mappedBy = "cidade", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany
     private List<Estoque> estoques;
     public Integer getId() {
         return id;

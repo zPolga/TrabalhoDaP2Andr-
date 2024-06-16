@@ -2,6 +2,7 @@ package entidades;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Produto {
@@ -22,7 +23,8 @@ public class Produto {
     private Date dataValidade;
     @Column (name = "qtde_min")
     private double quantidadeMinima;
-    @ManyToOne
+
+    @OneToOne
     @JoinColumn (name = "id_codbarras")
     private CodigoDeBarras codigoDeBarras;
     @ManyToOne
@@ -31,6 +33,11 @@ public class Produto {
     @ManyToOne
     @JoinColumn (name = "id_entrada")
     private Entrada entrada;
+
+
+
+
+
     @ManyToOne
     @JoinColumn (name = "id_saida")
     private Saida saida;
@@ -38,7 +45,9 @@ public class Produto {
     @JoinColumn (name = "id_estoque")
     private Estoque estoque;
 
-    public Produto( String marca, String categoria, String fornecedor, double qtdRecebida, double precoDoProduto, double precoDeVenda, Date dataValidade, double quantidadeMinima) {
+
+
+    public Produto(String marca, String categoria, String fornecedor, double qtdRecebida, double precoDoProduto, double precoDeVenda, Date dataValidade, double quantidadeMinima) {
 
         this.marca = marca;
         this.categoria = categoria;
@@ -49,6 +58,10 @@ public class Produto {
         this.dataValidade = dataValidade;
         this.quantidadeMinima = quantidadeMinima;
 
+    }
+
+    public Produto(Integer id) {
+        this.id = id;
     }
 
     public Produto() {

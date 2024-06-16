@@ -28,7 +28,7 @@ public class CodigoDeBarrasController {
 
                 Tipo tipo = new Tipo(selecionado);
                 Estoque est = new Estoque(qtdPorCaixaFormatado);
-                CodigoDeBarras codigoDeBarras = new CodigoDeBarras(idCodBarras, est, tipo);
+                CodigoDeBarras codigoDeBarras = new CodigoDeBarras( codigoDebarras,est, tipo);
 
 
                 TipoDao tipoDao = new TipoDao();

@@ -1,5 +1,7 @@
 package telas.produtosEntrada;
 
+import controller.EntradaController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -18,6 +20,8 @@ public class EntradaProduto extends JFrame {
     public EntradaProduto() {
         configurar();
         criarTela();
+        EntradaController entradaController = new EntradaController();
+        entradaController.acoes(this);
     }
 
     public void configurar() {
